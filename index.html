@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contatos — Indústria Criativa · Ulbra</title>
+<meta name="description" content="E-mail, WhatsApp e atendimento presencial dos cursos de Design Digital, Marketing, Mídias Sociais Digitais e Jornalismo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-900: #0d3634;
+    --green-800: #034948;
+    --green-600: #045a52;
+    --gold-100: #f5ce99;
+    --gold-300: #cca269;
+    --gold-700: #66563d;
+    --text: #1a1a1a;
+    --text-muted: #606060;
+    --line-hairline: #e3e3e3;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: #ffffff;
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  a {
+    color: var(--green-600);
+  }
+
+  a:hover {
+    color: var(--green-800);
+  }
+
+  .header {
+    position: relative;
+    overflow: hidden;
+    background: url('assets/kv-gradient-grain.png') center/cover no-repeat;
+  }
+
+  .header-inner {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 56px 32px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .logo {
+    height: 44px;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold-300);
+  }
+
+  .eyebrow--muted {
+    color: var(--gold-700);
+  }
+
+  .headline {
+    margin: 0;
+    max-width: 640px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--gold-100);
+    text-wrap: pretty;
+  }
+
+  .subhead {
+    margin: 0;
+    max-width: 560px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #c6ddd0;
+    text-wrap: pretty;
+  }
+
+  main {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 64px 32px 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 48px 40px;
+    align-items: start;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    border-top: 2px solid var(--green-900);
+    padding-top: 18px;
+  }
+
+  .card-email {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  .card-note {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .whatsapp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .whatsapp-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .whatsapp-label {
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  .whatsapp-number {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .qr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    margin-top: 6px;
+  }
+
+  .qr-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .qr-caption {
+    font-size: 15px;
+    line-height: 1.35;
+    color: var(--green-900);
+  }
+
+  .qr-image {
+    width: 100%;
+    max-width: 150px;
+    border: 1px solid var(--line-hairline);
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .contact-name-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .contact-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--green-900);
+  }
+
+  .contact-role {
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  .contact-location {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  .btn {
+    align-self: flex-start;
+    padding: 14px 26px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color .2s ease, color .2s ease;
+  }
+
+  .btn-primary {
+    background: var(--green-600);
+    color: var(--gold-100);
+  }
+
+  .btn-primary:hover {
+    background: var(--green-800);
+    color: var(--gold-100);
+  }
+
+  .btn-outline {
+    border: 1px solid var(--green-600);
+    color: var(--green-600);
+  }
+
+  .btn-outline:hover {
+    background: var(--green-600);
+    color: var(--gold-100);
+  }
+
+  .plantao-section {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 16px 32px 72px;
+  }
+
+  .plantao-banner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--line-hairline);
+    border-radius: 16px;
+    padding: 28px 32px;
+    background: #f6f7f6;
+  }
+
+  .plantao-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 620px;
+  }
+
+  .plantao-text {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--green-900);
+    text-wrap: pretty;
+  }
+
+  footer {
+    border-top: 1px solid var(--line-hairline);
+  }
+
+  .footer-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 28px 32px 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+    justify-content: space-between;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <img class="logo" src="assets/logo-horizontal-gold.png" alt="ULBRA">
+    <span class="eyebrow">Indústria Criativa · Portal do Estudante</span>
+    <h1 class="headline">Fale com a coordenação.</h1>
+    <p class="subhead">E-mail, WhatsApp e atendimento presencial dos cursos de Design Digital, Marketing, Mídias Sociais Digitais e Jornalismo.</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="card">
+    <span class="eyebrow eyebrow--muted">E-mail dos cursos</span>
+    <a class="card-email" href="mailto:industriacriativa@ulbra.br">industriacriativa@ulbra.br</a>
+    <p class="card-note">Resposta em até 2 dias úteis. Informe seu nome completo, curso e matrícula.</p>
+  </section>
+
+  <section class="card">
+    <span class="eyebrow eyebrow--muted">WhatsApp</span>
+    <div class="whatsapp-list">
+      <div class="whatsapp-entry">
+        <span class="whatsapp-label">Secretaria</span>
+        <a class="whatsapp-number" href="https://wa.me/5551993288081">+55 51 99328-8081</a>
+      </div>
+      <div class="whatsapp-entry">
+        <span class="whatsapp-label">Coordenação</span>
+        <a class="whatsapp-number" href="https://wa.me/5551992409038">+55 51 99240-9038</a>
+      </div>
+    </div>
+    <div class="qr-grid">
+      <div class="qr-item">
+        <span class="qr-caption">Comunidade<br>DD &amp; MKT</span>
+        <img class="qr-image" src="assets/qr-comunidade-dd-mkt.png" alt="QR code da comunidade de Design Digital e Marketing">
+      </div>
+      <div class="qr-item">
+        <span class="qr-caption">Comunidade<br>Jornalismo</span>
+        <img class="qr-image" src="assets/qr-comunidade-jornalismo.png" alt="QR code da comunidade de Jornalismo">
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <span class="eyebrow eyebrow--muted">Pessoalmente</span>
+    <div class="contact-name-block">
+      <span class="contact-name">Matheus Ávila</span>
+      <span class="contact-role">Coordenação da Indústria Criativa</span>
+    </div>
+    <p class="contact-location">Prédio 1 · Sala 25 · Canoas/RS</p>
+    <a class="btn btn-primary" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0rG__nazBgV8LboJ52EJUGc_2YBnThwAtABAEUBiI0QgOfs6hNlshXvvDUmDirA4-xX7_LUJHc" target="_blank" rel="noopener">Agendar horário</a>
+  </section>
+
+</main>
+
+<section class="plantao-section">
+  <div class="plantao-banner">
+    <div class="plantao-copy">
+      <span class="eyebrow eyebrow--muted">Plantão de atendimento</span>
+      <p class="plantao-text">Atendimento on-line com a coordenação, sem agendamento prévio, somente nas quintas-feiras, das 20h às 21h.</p>
+    </div>
+    <a class="btn btn-outline" href="https://meet.google.com/ecw-uwci-yoq" target="_blank" rel="noopener">Acessar Atendimento</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>ULBRA · Universidade Luterana do Brasil · Campus Canoas · Mantida pela AELBRA</span>
+    <span>ulbra.br</span>
+  </div>
+</footer>
+
+</body>
+</html>
