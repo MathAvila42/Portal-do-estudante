@@ -117,10 +117,9 @@
     max-width: 1080px;
     margin: 0 auto;
     padding: 64px 32px 24px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 48px 40px;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
   }
 
   .card {
@@ -131,18 +130,114 @@
     padding-top: 18px;
   }
 
-  .card-email {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1.4;
-    word-break: break-word;
-  }
-
   .card-note {
     margin: 0;
     font-size: 15px;
     line-height: 1.5;
     color: var(--text-muted);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 48px 40px;
+    align-items: start;
+  }
+
+  .section-divider {
+    height: 2px;
+    background: var(--green-900);
+    border: none;
+    margin: 0;
+  }
+
+  .callout {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-left: 2px solid var(--gold-300);
+    padding: 2px 0 2px 18px;
+    max-width: 680px;
+  }
+
+  .callout-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gold-700);
+  }
+
+  .callout-text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--green-900);
+  }
+
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px 40px;
+  }
+
+  .sector-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .sector-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .sector-email {
+    font-size: 15px;
+  }
+
+  .equipe-subsection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-top: 1px solid var(--line-hairline);
+    padding-top: 20px;
+  }
+
+  .coordinator-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .coordinator-title {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px 32px;
+  }
+
+  .person {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .person-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .person-email {
+    font-size: 15px;
   }
 
   .whatsapp-list {
@@ -315,10 +410,74 @@
 <main>
 
   <section class="card">
-    <span class="eyebrow eyebrow--muted">E-mail dos cursos</span>
-    <a class="card-email" href="mailto:industriacriativa@ulbra.br">industriacriativa@ulbra.br</a>
-    <p class="card-note">Resposta em até 2 dias úteis. Já envie a mensagem com seu nome completo e CPF para agilizar o atendimento.</p>
+    <span class="eyebrow eyebrow--muted">E-mails de setores</span>
+    <div class="callout">
+      <span class="callout-label">Aviso</span>
+      <p class="callout-text">Em qualquer contato com os setores, já envie a mensagem com seu <strong>nome completo e CPF</strong> para agilizar o atendimento.</p>
+    </div>
+    <div class="sector-grid">
+      <div class="sector-entry">
+        <span class="sector-label">Financeiro EaD</span>
+        <a class="sector-email" href="mailto:financeiro.ead@ulbra.br">financeiro.ead@ulbra.br</a>
+      </div>
+      <div class="sector-entry">
+        <span class="sector-label">Secretaria de Curso · Luana Dornelles</span>
+        <a class="sector-email" href="mailto:luana.dornelles@ulbra.br">luana.dornelles@ulbra.br</a>
+      </div>
+    </div>
   </section>
+
+  <hr class="section-divider">
+
+  <section class="card">
+    <span class="eyebrow eyebrow--muted">Equipe dos cursos</span>
+
+    <div class="equipe-subsection">
+      <span class="eyebrow eyebrow--muted">Coordenação</span>
+      <div class="coordinator-block">
+        <span class="contact-name">Matheus Ávila</span>
+        <p class="coordinator-title">Coordenador Nacional dos cursos da Indústria Criativa<br>Design Digital, Marketing, Mídias Sociais Digitais e Jornalismo</p>
+      </div>
+    </div>
+
+    <div class="equipe-subsection">
+      <span class="eyebrow eyebrow--muted">Professores</span>
+      <div class="people-grid">
+        <div class="person">
+          <span class="person-name">Maria Alice Coelho Nitzsche</span>
+          <a class="person-email" href="mailto:maria.coelho@ulbra.br">maria.coelho@ulbra.br</a>
+        </div>
+        <div class="person">
+          <span class="person-name">Francine Alexandra Moreira Aires</span>
+          <a class="person-email" href="mailto:francine.aires@ulbra.br">francine.aires@ulbra.br</a>
+        </div>
+        <div class="person">
+          <span class="person-name">Alison Soares Rodrigues</span>
+          <a class="person-email" href="mailto:alison.soares@ulbra.br">alison.soares@ulbra.br</a>
+        </div>
+        <div class="person">
+          <span class="person-name">Cleber da Silva Moreira</span>
+          <a class="person-email" href="mailto:cleber.moreira@ulbra.br">cleber.moreira@ulbra.br</a>
+        </div>
+        <div class="person">
+          <span class="person-name">Alexandre Magno Rosa Paz</span>
+          <a class="person-email" href="mailto:alexandre.paz@ulbra.br">alexandre.paz@ulbra.br</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="equipe-subsection">
+      <span class="eyebrow eyebrow--muted">Tutoria</span>
+      <div class="people-grid">
+        <div class="person">
+          <span class="person-name">Igor Bandasz</span>
+          <a class="person-email" href="mailto:igor.bandasz@ulbra.br">igor.bandasz@ulbra.br</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact-grid">
 
   <section class="card">
     <span class="eyebrow eyebrow--muted">WhatsApp</span>
@@ -353,6 +512,8 @@
     <p class="contact-location">Prédio 1 · Sala 25 · Canoas/RS</p>
     <a class="btn btn-primary" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0rG__nazBgV8LboJ52EJUGc_2YBnThwAtABAEUBiI0QgOfs6hNlshXvvDUmDirA4-xX7_LUJHc" target="_blank" rel="noopener">Agendar horário</a>
   </section>
+
+  </div>
 
 </main>
 
