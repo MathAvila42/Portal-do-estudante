@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendário EaD 2026/2 — Indústria Criativa · Ulbra</title>
+<meta name="description" content="Datas do calendário acadêmico para os cursos EaD e disciplinas ofertadas a distância da Indústria Criativa: início das aulas, avaliações, matrícula, trancamento e feriados.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-900: #0d3634;
+    --green-800: #034948;
+    --green-600: #045a52;
+    --gold-100: #f5ce99;
+    --gold-300: #cca269;
+    --gold-700: #66563d;
+    --text: #1a1a1a;
+    --text-muted: #606060;
+    --line-hairline: #e3e3e3;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: #ffffff;
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  a {
+    color: var(--green-600);
+  }
+
+  a:hover {
+    color: var(--green-800);
+  }
+
+  .header {
+    position: relative;
+    overflow: hidden;
+    background: url('assets/kv-gradient-grain.png') center/cover no-repeat;
+  }
+
+  .header-inner {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 56px 32px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #c6ddd0;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    color: var(--gold-100);
+  }
+
+  .logo {
+    height: 44px;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold-300);
+  }
+
+  .eyebrow--muted {
+    color: var(--gold-700);
+  }
+
+  .headline {
+    margin: 0;
+    max-width: 640px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--gold-100);
+    text-wrap: pretty;
+  }
+
+  .subhead {
+    margin: 0;
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #c6ddd0;
+    text-wrap: pretty;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 64px 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .stage {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .stage-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 2px solid var(--green-900);
+    padding-top: 18px;
+  }
+
+  .stage-title {
+    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--green-900);
+  }
+
+  .stage-note {
+    margin: 0;
+    max-width: 640px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .callout {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-left: 2px solid var(--gold-300);
+    padding: 2px 0 2px 18px;
+    max-width: 680px;
+  }
+
+  .callout-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gold-700);
+  }
+
+  .callout-text {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--green-900);
+  }
+
+  .rows {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: minmax(120px, 160px) 1fr;
+    gap: 8px 24px;
+    border-bottom: 1px solid var(--line-hairline);
+    padding: 16px 0;
+  }
+
+  .row-date {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--green-600);
+  }
+
+  .row-text {
+    font-size: 17px;
+    line-height: 1.45;
+  }
+
+  .holidays-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0 40px;
+  }
+
+  .holidays-grid .row {
+    grid-template-columns: 90px 1fr;
+    padding: 14px 0;
+  }
+
+  .cta-banner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--line-hairline);
+    border-radius: 16px;
+    padding: 28px 32px;
+    background: #f6f7f6;
+    margin-bottom: 64px;
+  }
+
+  .cta-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 620px;
+  }
+
+  .cta-text {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--green-900);
+    text-wrap: pretty;
+  }
+
+  .btn {
+    align-self: flex-start;
+    padding: 14px 26px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color .2s ease, color .2s ease;
+  }
+
+  .btn-primary {
+    background: var(--green-600);
+    color: var(--gold-100);
+  }
+
+  .btn-primary:hover {
+    background: var(--green-800);
+    color: var(--gold-100);
+  }
+
+  footer {
+    border-top: 1px solid var(--line-hairline);
+  }
+
+  .footer-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 28px 32px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="back-link" href="https://sites.google.com/ulbra.br/portaldoestudantes/início?authuser=1">&larr; Portal do Estudante</a>
+    <img class="logo" src="assets/logo-horizontal-gold.png" alt="ULBRA">
+    <span class="eyebrow">Indústria Criativa · Portal do Estudante</span>
+    <h1 class="headline">Calendário EaD 2026/2</h1>
+    <p class="subhead">Somente as datas que valem para os cursos EaD e para as disciplinas ofertadas a distância. Etapa por etapa, do início do semestre à avaliação final.</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="stage">
+    <div class="stage-header">
+      <span class="eyebrow eyebrow--muted">Etapa 1</span>
+      <h2 class="stage-title">Abertura e início das aulas</h2>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="row-date">05/08</span><span class="row-text">Abertura das salas e ambientação no AVA (5 dias antes do início do período letivo)</span></div>
+      <div class="row"><span class="row-date">10/08</span><span class="row-text">Início do período letivo · início das aulas das disciplinas EaD</span></div>
+      <div class="row"><span class="row-date">19/12</span><span class="row-text">Último dia letivo de 2026/2</span></div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-header">
+      <span class="eyebrow eyebrow--muted">Etapa 2</span>
+      <h2 class="stage-title">Avaliações das disciplinas EaD</h2>
+      <p class="stage-note">Janelas de aplicação no AVA.</p>
+      <div class="callout">
+        <span class="callout-label">Atenção</span>
+        <p class="callout-text">Disciplinas práticas e de <strong>PI (Projetos Integradores)</strong> podem ter datas diferentes das janelas abaixo. Confira <strong>sempre no ambiente AULA</strong> os prazos finais e de entrega de cada atividade.</p>
+      </div>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="row-date">24/08 a 05/10</span><span class="row-text">AP1 · Avaliação Parcial 1</span></div>
+      <div class="row"><span class="row-date">05/10 a 16/11</span><span class="row-text">AP2 · Avaliação Parcial 2</span></div>
+      <div class="row"><span class="row-date">26/11 a 09/12</span><span class="row-text">AS · Avaliação Semestral (objetiva)</span></div>
+      <div class="row"><span class="row-date">10/12 a 19/12</span><span class="row-text">AF · Avaliação Final (objetiva)</span></div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-header">
+      <span class="eyebrow eyebrow--muted">Etapa 3</span>
+      <h2 class="stage-title">Matrícula, trancamento e prazos financeiros</h2>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="row-date">31/07</span><span class="row-text">Último dia do mês para trancamento ou cancelamento total de matrícula com isenção das parcelas subsequentes de 2026/2</span></div>
+      <div class="row"><span class="row-date">06/08</span><span class="row-text">Último dia para solicitar Extraordinário Aproveitamento de Estudos de 2026/2, com documentação comprobatória</span></div>
+      <div class="row"><span class="row-date">21/08</span><span class="row-text">Último dia para solicitar aproveitamento de disciplinas cursadas em outra IES (ingressantes 2026/2)</span></div>
+      <div class="row"><span class="row-date">31/08</span><span class="row-text">Último dia do semestre para cancelamento total de matrícula, trancamento e cancelamento de disciplinas <strong>com isenção financeira</strong></span></div>
+      <div class="row"><span class="row-date">06/10</span><span class="row-text">Último dia do semestre para trancamento de matrícula e cancelamento de disciplinas regulares — efeito apenas acadêmico, sem isenção financeira</span></div>
+      <div class="row"><span class="row-date">02/12</span><span class="row-text">Abre o período de solicitação de Extraordinário Aproveitamento de Estudos para 2027/1</span></div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-header">
+      <span class="eyebrow eyebrow--muted">Etapa 4</span>
+      <h2 class="stage-title">Feriados e recessos</h2>
+      <p class="stage-note">O AVA segue disponível nos feriados; as datas-limite das atividades não mudam por causa deles.</p>
+    </div>
+    <div class="holidays-grid">
+      <div class="rows">
+        <div class="row"><span class="row-date">07/09</span><span class="row-text">Independência do Brasil</span></div>
+        <div class="row"><span class="row-date">10/10</span><span class="row-text">Feriado ponte</span></div>
+        <div class="row"><span class="row-date">12/10</span><span class="row-text">Nossa Senhora Aparecida</span></div>
+        <div class="row"><span class="row-date">13/10</span><span class="row-text">Antecipação do Dia do Professor</span></div>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="row-date">02/11</span><span class="row-text">Finados</span></div>
+        <div class="row"><span class="row-date">20/11</span><span class="row-text">Dia da Consciência Negra</span></div>
+        <div class="row"><span class="row-date">25/12</span><span class="row-text">Natal</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="cta-copy">
+      <span class="eyebrow eyebrow--muted">Dúvida sobre uma data</span>
+      <p class="cta-text">Fale com a coordenação da Indústria Criativa por e-mail, WhatsApp ou no plantão de atendimento das quintas-feiras.</p>
+    </div>
+    <a class="btn btn-primary" href="index.html">Ver contatos</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>Datas extraídas do Calendário Acadêmico 2026 ULBRA/RS — Cursos EaD e disciplinas ofertadas a distância (Resolução ConsUn nº 32, de 02/09/2025). Colação de grau não consta neste calendário: consulte a secretaria do curso.</span>
+    <span>ULBRA · Universidade Luterana do Brasil · Mantida pela AELBRA · ulbra.br</span>
+  </div>
+</footer>
+
+</body>
+</html>
