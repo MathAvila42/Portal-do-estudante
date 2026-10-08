@@ -55,17 +55,42 @@
     align-items: flex-start;
   }
 
-  .back-link {
-    display: inline-flex;
+  .topnav {
+    background: var(--green-900);
+    padding: 14px 32px;
+  }
+
+  .topnav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 13px;
+    justify-content: space-between;
+    gap: 16px 24px;
+    flex-wrap: wrap;
+  }
+
+  .topnav-brand {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold-100);
+    text-decoration: none;
+  }
+
+  .topnav-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .topnav-links a {
+    font-size: 14px;
     font-weight: 600;
     color: #c6ddd0;
     text-decoration: none;
   }
 
-  .back-link:hover {
+  .topnav-links a:hover,
+  .topnav-links a.active {
     color: var(--gold-100);
   }
 
@@ -273,9 +298,19 @@
 </head>
 <body>
 
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="index.html">Portal do Estudante · Indústria Criativa</a>
+    <div class="topnav-links">
+      <a href="index.html">Início</a>
+      <a class="active" href="calendario-ead.html">Calendário</a>
+      <a href="contatos.html">Contatos</a>
+    </div>
+  </div>
+</nav>
+
 <header class="header">
   <div class="header-inner">
-    <a class="back-link" href="https://sites.google.com/ulbra.br/portaldoestudantes/início?authuser=1">&larr; Portal do Estudante</a>
     <img class="logo" src="assets/logo-horizontal-gold.png" alt="ULBRA">
     <span class="eyebrow">Indústria Criativa · Portal do Estudante</span>
     <h1 class="headline">Calendário EaD 2026/2</h1>
@@ -356,7 +391,7 @@
       <span class="eyebrow eyebrow--muted">Dúvida sobre uma data</span>
       <p class="cta-text">Fale com a coordenação da Indústria Criativa por e-mail, WhatsApp ou no plantão de atendimento das quintas-feiras.</p>
     </div>
-    <a class="btn btn-primary" href="index.html">Ver contatos</a>
+    <a class="btn btn-primary" href="contatos.html">Ver contatos</a>
   </section>
 
 </main>
