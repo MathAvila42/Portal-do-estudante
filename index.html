@@ -144,52 +144,55 @@
     display: block;
   }
 
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--green-900);
+    border-radius: 16px;
+    padding: 36px 32px;
+    text-decoration: none;
+    transition: background-color .2s ease, transform .2s ease;
+  }
+
+  .feature-card:hover {
+    background: var(--green-800);
+    transform: translateY(-2px);
+  }
+
+  .feature-title {
+    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.15;
+    color: var(--gold-100);
+  }
+
+  .feature-text {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #c6ddd0;
+  }
+
+  .feature-arrow {
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold-100);
+  }
+
   .quick-links {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 32px 40px;
-  }
-
-  .link-card {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    border-top: 2px solid var(--green-900);
-    padding-top: 18px;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .link-card-title {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--green-900);
-  }
-
-  .link-card-text {
-    margin: 0;
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--text-muted);
-  }
-
-  .link-card-arrow {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--green-600);
-  }
-
-  .link-card:hover .link-card-arrow {
-    color: var(--green-800);
-    text-decoration: underline;
-  }
-
-  .link-card-list {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    font-size: 14px;
-    font-weight: 600;
   }
 
   .banner {
@@ -310,7 +313,7 @@
       <a class="active" href="index.html">Início</a>
       <a href="calendario-ead.html">Calendário</a>
       <a href="contatos.html">Contatos</a>
-      <a href="onboarding/index.html">Onboarding</a>
+      <a href="onboarding-ead.html">Onboarding</a>
       <a href="espaco-academico/index.html">Dúvidas</a>
     </div>
   </div>
@@ -328,60 +331,22 @@
 <main>
 
   <section>
-    <span class="eyebrow eyebrow--muted section-label" style="margin-bottom:20px">Acesso rápido</span>
-    <div class="quick-links">
+    <span class="eyebrow eyebrow--muted section-label" style="margin-bottom:20px">Comece por aqui</span>
+    <div class="feature-grid">
 
-      <a class="link-card" href="onboarding/index.html">
-        <span class="eyebrow eyebrow--muted">Novo por aqui?</span>
-        <span class="link-card-title">Onboarding do aluno novo</span>
-        <p class="link-card-text">Passo a passo por modalidade: primeiro acesso, prazos, avaliações e canais de ajuda.</p>
-        <span class="link-card-arrow">Começar →</span>
+      <a class="feature-card" href="onboarding-ead.html">
+        <span class="eyebrow">Novo por aqui? · EaD</span>
+        <span class="feature-title">Onboarding do aluno novo</span>
+        <p class="feature-text">Passo a passo pra começar bem: primeiro acesso, prazos, avaliações e canais de ajuda.</p>
+        <span class="feature-arrow">Começar →</span>
       </a>
 
-      <a class="link-card" href="espaco-academico/index.html">
-        <span class="eyebrow eyebrow--muted">20+ perguntas respondidas</span>
-        <span class="link-card-title">Central de Dúvidas EaD</span>
-        <p class="link-card-text">Busque por assunto — AVA, boleto, matrícula, calendário — e encontre a resposta na hora.</p>
-        <span class="link-card-arrow">Pesquisar dúvidas →</span>
+      <a class="feature-card" href="espaco-academico/index.html">
+        <span class="eyebrow">20+ perguntas respondidas</span>
+        <span class="feature-title">Central de Dúvidas EaD</span>
+        <p class="feature-text">Busque por assunto — AVA, boleto, matrícula, calendário — e encontre a resposta na hora.</p>
+        <span class="feature-arrow">Pesquisar dúvidas →</span>
       </a>
-
-      <a class="link-card" href="contatos.html">
-        <span class="eyebrow eyebrow--muted">Fale com a coordenação</span>
-        <span class="link-card-title">Contatos</span>
-        <p class="link-card-text">E-mail dos setores, WhatsApp, equipe do curso e atendimento presencial.</p>
-        <span class="link-card-arrow">Ver contatos →</span>
-      </a>
-
-      <a class="link-card" href="calendario-ead.html">
-        <span class="eyebrow eyebrow--muted">Datas que importam</span>
-        <span class="link-card-title">Calendário EaD 2026/2</span>
-        <p class="link-card-text">Início das aulas, avaliações, matrícula, trancamento e feriados.</p>
-        <span class="link-card-arrow">Ver calendário →</span>
-      </a>
-
-      <a class="link-card" href="contatos.html#plantao">
-        <span class="eyebrow eyebrow--muted">Toda quinta, 20h às 21h</span>
-        <span class="link-card-title">Plantão de atendimento</span>
-        <p class="link-card-text">Atendimento on-line com a coordenação, sem agendamento prévio.</p>
-        <span class="link-card-arrow">Acessar atendimento →</span>
-      </a>
-
-      <a class="link-card" href="contatos.html#pessoalmente">
-        <span class="eyebrow eyebrow--muted">Prédio 1 · Sala 25 · Canoas/RS</span>
-        <span class="link-card-title">Agendamento</span>
-        <p class="link-card-text">Marque um horário presencial ou on-line com a coordenação.</p>
-        <span class="link-card-arrow">Agendar horário →</span>
-      </a>
-
-      <div class="link-card">
-        <span class="eyebrow eyebrow--muted">Depois da formatura</span>
-        <span class="link-card-title">Estágios e carreira</span>
-        <p class="link-card-text">Oportunidades de estágio e vagas abertas pela Ulbra e pela Fulbra.</p>
-        <div class="link-card-list">
-          <a href="https://www.ulbra.br/carreiras" target="_blank" rel="noopener">Ulbra Carreiras →</a>
-          <a href="https://www.fulbra.org.br/" target="_blank" rel="noopener">Fulbra — Fundação Ulbra →</a>
-        </div>
-      </div>
 
     </div>
   </section>
