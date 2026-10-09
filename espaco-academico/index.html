@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Central de Dúvidas EaD · ULBRA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=11">
+</head>
+<body>
+
+<header class="header">
+  <img class="header__logo" src="assets/logo.png" alt="ULBRA">
+  <div class="header__divider"></div>
+  <div class="header__titles">
+    <div class="header__title">Central de Dúvidas EaD</div>
+    <div class="header__subtitle">Espaço Acadêmico · Educação a Distância</div>
+  </div>
+  <a href="../index.html" style="margin-left:auto;color:rgba(255,255,255,.75);font:600 13px 'Plus Jakarta Sans',system-ui,sans-serif;text-decoration:none">&larr; Portal do Estudante</a>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="hero__eyebrow">Central de Dúvidas</div>
+      <h1 class="hero__title">Encontre a resposta<br>que você precisa</h1>
+      <div class="search">
+        <span class="search__icon"><span class="material-symbols-outlined">search</span></span>
+        <input type="text" id="search-input" class="search__input" placeholder="Digite sua dúvida (ex.: AVA, boleto, calendário, matrícula...)" autocomplete="off" aria-label="Pesquisar perguntas frequentes" aria-autocomplete="list" aria-controls="search-suggestions">
+        <div id="search-suggestions" class="search-suggestions" hidden role="listbox"></div>
+      </div>
+      <p class="intro__quick-label hero__quick-label">Acesso rápido</p>
+      <div class="quick-links" id="quick-links"></div>
+    </div>
+  </section>
+
+  <section class="intro intro--highlight">
+    <div class="intro__inner">
+      <button class="guide-banner" id="open-onboarding" type="button">
+        <div class="guide-banner__icon"><span class="material-symbols-outlined">rocket_launch</span></div>
+        <div class="guide-banner__body">
+          <div class="guide-banner__label">Novo por aqui?</div>
+          <div class="guide-banner__title">Guia do Novo Aluno EaD</div>
+          <div class="guide-banner__desc">11 passos rápidos para começar bem no EaD ULBRA</div>
+        </div>
+        <div class="guide-banner__cta">Começar agora <span class="material-symbols-outlined">arrow_forward</span></div>
+      </button>
+    </div>
+  </section>
+
+  <div class="faq-area">
+    <div class="container pills-wrap">
+      <div class="pills" id="category-pills"></div>
+    </div>
+
+    <div class="container result-count-wrap" id="result-count-wrap" hidden>
+      <span class="result-count" id="result-count"></span>
+    </div>
+
+    <div class="container faq-sections" id="faq-sections"></div>
+
+    <div class="no-results" id="no-results" hidden>
+      <div class="no-results__icon"><span class="material-symbols-outlined">search</span></div>
+      <h3 class="no-results__title">Nenhuma pergunta encontrada</h3>
+      <p class="no-results__text">Tente outros termos ou fale diretamente com a Central de Relacionamento EaD:</p>
+      <div class="no-results__contacts">
+        <a class="no-results__contact-btn" href="https://wa.me/5551992741192" target="_blank" rel="noopener">
+          <span class="material-symbols-outlined">phone</span> (51) 99274-1192
+        </a>
+        <a class="no-results__contact-btn" href="mailto:relac.canoas@ulbra.br">
+          <span class="material-symbols-outlined">mail</span> relac.canoas@ulbra.br
+        </a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div class="modal-overlay" id="onboarding-overlay" hidden>
+  <div class="modal" id="onboarding-modal" role="dialog" aria-modal="true">
+
+    <div class="modal__header">
+      <button class="modal__close" id="close-onboarding" type="button" aria-label="Fechar"><span class="material-symbols-outlined">close</span></button>
+      <div class="modal__heading">
+        <div class="modal__icon" id="onboarding-icon"></div>
+        <div>
+          <div class="modal__step-label" id="onboarding-step-label"></div>
+          <h3 class="modal__title" id="onboarding-title"></h3>
+        </div>
+      </div>
+      <div class="modal__progress">
+        <div class="modal__progress-fill" id="onboarding-progress"></div>
+      </div>
+    </div>
+
+    <div class="modal__body" id="onboarding-body"></div>
+
+    <div class="modal__footer">
+      <div class="modal__dots" id="onboarding-dots"></div>
+      <div class="modal__nav">
+        <button class="btn btn--ghost" id="onboarding-prev" type="button"><span class="material-symbols-outlined">arrow_back</span> Anterior</button>
+        <button class="btn btn--primary" id="onboarding-next" type="button">Próximo <span class="material-symbols-outlined">arrow_forward</span></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <nav class="footer__nav">
+      <a href="#">Ensino</a>
+      <a href="#">Pesquisa</a>
+      <a href="#">Sobre a ULBRA</a>
+      <a href="#">Extensão</a>
+      <a href="#">Espaço Acadêmico</a>
+      <a href="#">Inovação</a>
+      <a href="#">Atendimento</a>
+      <a href="#">Trabalhe conosco</a>
+    </nav>
+    <div class="footer__divider"></div>
+    <div class="footer__logo-row">
+      <img class="footer__logo" src="assets/logo.png" alt="ULBRA">
+    </div>
+    <p class="footer__address">
+      <strong>Ulbra EAD - Educação a Distância</strong> - Av. Farroupilha, 8001 · Saguão do Prédio 6 · Espaço Educação Continuada · Bairro São José · Canoas/RS · CEP: 92425-900 · Telefone: 0800.051.4131 · E-mail: <a href="mailto:portalead@ulbra.br">portalead@ulbra.br</a>
+    </p>
+    <a class="footer__legal-link" href="#">Política de privacidade</a>
+  </div>
+</footer>
+
+<script src="js/data.js?v=11"></script>
+<script src="js/main.js?v=11"></script>
+</body>
+</html>
