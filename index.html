@@ -149,16 +149,16 @@
   .quick-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 16px;
+    gap: 12px;
   }
 
   .quick-card {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     background: var(--green-900);
-    border-radius: 16px;
-    padding: 24px 26px;
+    border-radius: 12px;
+    padding: 18px 20px;
     text-decoration: none;
     transition: background-color .2s ease, transform .2s ease;
   }
@@ -169,27 +169,17 @@
   }
 
   .quick-title {
-    margin: 0;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 1.2;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
     color: var(--gold-100);
   }
 
   .quick-text {
     margin: 0;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 13px;
+    line-height: 1.4;
     color: #c6ddd0;
-  }
-
-  .quick-arrow {
-    margin-top: auto;
-    padding-top: 4px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gold-100);
   }
 
   .quick-links {
@@ -198,41 +188,51 @@
     gap: 32px 40px;
   }
 
-  .highlight {
+  .next-date {
+    background: #072120;
+    border-top: 1px solid rgba(245, 206, 153, .15);
+  }
+
+  .next-date-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 18px 32px;
     display: flex;
     flex-wrap: wrap;
-    gap: 24px 40px;
     align-items: center;
     justify-content: space-between;
-    border-radius: 16px;
-    padding: 36px 40px;
-    background: var(--gold-100);
-    border-left: 6px solid var(--gold-300);
+    gap: 12px 32px;
   }
 
-  .highlight-copy {
+  .next-date-copy {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    max-width: 640px;
+    gap: 4px;
+    min-width: 0;
   }
 
-  .highlight-date {
+  .next-date-text {
     margin: 0;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--green-900);
+    font-size: 17px;
+    line-height: 1.4;
+    color: #c6ddd0;
   }
 
-  .highlight-text {
-    margin: 0;
-    font-size: 18px;
-    line-height: 1.5;
-    color: var(--green-900);
-    text-wrap: pretty;
+  .next-date-text strong {
+    font-weight: 600;
+    color: var(--gold-100);
+  }
+
+  .next-date-link {
+    flex: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold-100);
+    text-decoration: none;
+  }
+
+  .next-date-link:hover {
+    color: #ffffff;
   }
 
   .btn {
@@ -306,16 +306,6 @@
     font-size: 14px;
   }
 
-  @media (max-width: 600px) {
-    .highlight {
-      padding: 28px 24px;
-    }
-
-    .highlight-date {
-      font-size: 32px;
-    }
-  }
-
   footer {
     border-top: 1px solid var(--line-hairline);
   }
@@ -358,61 +348,50 @@
   </div>
 </header>
 
-<main>
-
-  <section class="highlight" id="proximo-prazo">
-    <div class="highlight-copy">
-      <span class="eyebrow eyebrow--muted">Próxima data importante</span>
-      <p class="highlight-date" id="proximo-prazo-date">Carregando…</p>
-      <p class="highlight-text" id="proximo-prazo-text"></p>
+<section class="next-date" id="proximo-prazo">
+  <div class="next-date-inner">
+    <div class="next-date-copy">
+      <span class="eyebrow">Próxima data importante</span>
+      <p class="next-date-text" id="proximo-prazo-text">Carregando…</p>
     </div>
-    <a class="btn btn-primary" href="calendario-ead.html">Ver calendário completo</a>
-  </section>
+    <a class="next-date-link" href="calendario-ead.html">Ver calendário completo →</a>
+  </div>
+</section>
+
+<main>
 
   <section>
     <span class="eyebrow eyebrow--muted section-label" style="margin-bottom:20px">Acessos rápidos</span>
     <div class="quick-grid">
 
       <a class="quick-card" href="onboarding-ead.html">
-        <span class="eyebrow">Novo por aqui? · EaD</span>
         <span class="quick-title">Onboarding do aluno novo</span>
-        <p class="quick-text">Passo a passo pra começar bem: primeiro acesso, prazos, avaliações e canais de ajuda.</p>
-        <span class="quick-arrow">Começar →</span>
+        <p class="quick-text">Primeiros passos no EaD</p>
       </a>
 
       <a class="quick-card" href="espaco-academico/index.html">
-        <span class="eyebrow">20+ perguntas respondidas</span>
-        <span class="quick-title">Central de Dúvidas EaD</span>
-        <p class="quick-text">Busque por assunto — AVA, boleto, matrícula, calendário — e encontre a resposta na hora.</p>
-        <span class="quick-arrow">Pesquisar dúvidas →</span>
+        <span class="quick-title">Central de Dúvidas</span>
+        <p class="quick-text">Respostas rápidas</p>
       </a>
 
       <a class="quick-card" href="https://ac3949.mannesoftprime.com.br/webaluno/" target="_blank" rel="noopener">
-        <span class="eyebrow">Sistema acadêmico</span>
         <span class="quick-title">WebAluno</span>
-        <p class="quick-text">Notas, frequência, matrícula, boletos e documentos.</p>
-        <span class="quick-arrow">Acessar →</span>
+        <p class="quick-text">Notas, matrícula e boletos</p>
       </a>
 
       <a class="quick-card" href="calendario-ead.html">
-        <span class="eyebrow">Datas que importam</span>
-        <span class="quick-title">Calendário EaD 2026/2</span>
-        <p class="quick-text">Avaliações, prazos de trancamento e feriados do semestre.</p>
-        <span class="quick-arrow">Ver calendário →</span>
+        <span class="quick-title">Calendário EaD</span>
+        <p class="quick-text">Datas do semestre</p>
       </a>
 
       <a class="quick-card" href="contatos.html">
-        <span class="eyebrow">Fale com a coordenação</span>
         <span class="quick-title">Contatos</span>
-        <p class="quick-text">E-mails dos setores, equipe e atendimento presencial.</p>
-        <span class="quick-arrow">Ver contatos →</span>
+        <p class="quick-text">Fale com a coordenação</p>
       </a>
 
       <a class="quick-card" href="contatos.html#plantao">
-        <span class="eyebrow">Atendimento on-line</span>
         <span class="quick-title">Plantão de atendimento</span>
-        <p class="quick-text">Tire dúvidas ao vivo com a coordenação do curso.</p>
-        <span class="quick-arrow">Acessar plantão →</span>
+        <p class="quick-text">Dúvidas ao vivo</p>
       </a>
 
     </div>
@@ -466,18 +445,19 @@
 
     var todayStr = new Date().toISOString().slice(0, 10);
     var next = milestones.find(function (m) { return m.date >= todayStr; });
-    var dateEl = document.getElementById('proximo-prazo-date');
-    var textEl = document.getElementById('proximo-prazo-text');
+    var el = document.getElementById('proximo-prazo-text');
 
     if (!next) {
-      dateEl.textContent = 'Semestre concluído';
-      textEl.textContent = 'O semestre 2026/2 já foi concluído — confira o calendário completo para as próximas datas.';
+      el.textContent = 'O semestre 2026/2 já foi concluído.';
       return;
     }
 
     var d = new Date(next.date + 'T00:00:00');
-    dateEl.textContent = d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' });
-    textEl.textContent = next.label + '.';
+    el.innerHTML = '';
+    var strong = document.createElement('strong');
+    strong.textContent = d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' });
+    el.appendChild(strong);
+    el.appendChild(document.createTextNode(' · ' + next.label));
   })();
 </script>
 
