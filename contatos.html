@@ -57,12 +57,13 @@
 
   .topnav {
     background: var(--green-900);
-    padding: 14px 32px;
+    padding: 14px 0;
   }
 
   .topnav-inner {
     max-width: 1080px;
     margin: 0 auto;
+    padding: 0 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -79,7 +80,8 @@
 
   .topnav-links {
     display: flex;
-    gap: 24px;
+    flex-wrap: wrap;
+    gap: 8px 24px;
   }
 
   .topnav-links a {

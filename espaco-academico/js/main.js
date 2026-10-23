@@ -309,7 +309,7 @@ function goToQuestion(id, catId) {
 
   setTimeout(() => {
     const el = document.getElementById('faq-' + id);
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 90, behavior: 'smooth' });
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 16, behavior: 'smooth' });
   }, 100);
 
   setTimeout(() => {
@@ -380,7 +380,7 @@ searchInput.addEventListener('keydown', (e) => {
 
   setTimeout(() => {
     const el = document.getElementById('faq-' + firstItem.id);
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 90, behavior: 'smooth' });
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 16, behavior: 'smooth' });
   }, 120);
 
   setTimeout(() => {
