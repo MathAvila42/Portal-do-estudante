@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
 <title>Onboarding do Aluno Novo EaD — Indústria Criativa · Ulbra</title>
 <meta name="description" content="Passo a passo para o aluno novo EaD da Indústria Criativa: primeiro acesso ao WebAluno, datas importantes, como funcionam as avaliações e canais de ajuda.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -138,31 +139,123 @@
     padding: 48px 32px 72px;
   }
 
-  .step-card {
+  .journey {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .timeline-wrap {
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(11, minmax(92px, 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .timeline li {
+    position: relative;
+  }
+
+  .timeline li + li::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 50%;
+    width: 100%;
+    height: 2px;
+    background: var(--line-hairline);
+  }
+
+  .timeline li.is-done + li::before,
+  .timeline li.is-done + li.is-current::before {
+    background: var(--green-600);
+  }
+
+  .timeline-link {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 0 4px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-muted);
+  }
+
+  .timeline-num {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: 2px solid var(--line-hairline);
+    background: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .timeline-label {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .timeline li.is-done .timeline-num {
+    border-color: var(--green-600);
+    background: var(--green-600);
+    color: var(--gold-100);
+  }
+
+  .timeline li.is-current .timeline-num {
+    border-color: var(--green-900);
+    background: var(--gold-100);
+    color: var(--green-900);
+  }
+
+  .timeline li.is-current .timeline-label,
+  .timeline li.is-done .timeline-label {
+    color: var(--green-900);
+    font-weight: 600;
+  }
+
+  .timeline-link[aria-disabled="true"] {
+    cursor: default;
+    opacity: .55;
+  }
+
+  .step {
     max-width: 696px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 22px;
+    scroll-margin-top: 16px;
   }
 
-  .step-top {
+  .step + .step {
+    border-top: 1px solid var(--line-hairline);
+    padding-top: 40px;
+  }
+
+  .js .step {
+    display: none;
+  }
+
+  .js .step.is-current {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    border-top: none;
+    padding-top: 0;
   }
 
-  .progress-track {
-    height: 4px;
-    border-radius: 999px;
-    background: var(--line-hairline);
-    overflow: hidden;
-  }
-
-  .progress-fill {
-    height: 100%;
-    background: var(--green-600);
-    border-radius: 999px;
-    transition: width .3s ease;
+  .step-title:focus {
+    outline: none;
   }
 
   .step-title {
@@ -194,6 +287,44 @@
     font-size: 16px;
     line-height: 1.5;
     color: var(--text);
+  }
+
+  .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .checklist li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 16px 18px;
+    border: 1px solid var(--line-hairline);
+    border-radius: 12px;
+  }
+
+  .checklist input {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    margin: 1px 0 0;
+    accent-color: var(--green-600);
+  }
+
+  .checklist label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .checklist input:checked + label .bullet-title {
+    text-decoration: line-through;
+    color: var(--text-muted);
   }
 
   .callout {
@@ -253,61 +384,16 @@
     color: var(--gold-100);
   }
 
-  .btn-outline:disabled {
-    opacity: .35;
-    cursor: default;
-  }
-
-  .btn-outline:disabled:hover {
-    background: none;
-    color: var(--green-600);
-  }
-
   .step-cta {
     align-self: flex-start;
   }
 
   .step-nav {
     display: flex;
-    flex-direction: column;
-    gap: 18px;
-    border-top: 1px solid var(--line-hairline);
-    padding-top: 20px;
-  }
-
-  .dots {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 999px;
-    border: none;
-    padding: 0;
-    background: var(--line-hairline);
-    cursor: pointer;
-  }
-
-  .dot.is-visited {
-    background: #a9c9bf;
-  }
-
-  .dot:disabled {
-    cursor: default;
-  }
-
-  .dot.is-active {
-    background: var(--green-600);
-    width: 20px;
-  }
-
-  .step-nav-buttons {
-    display: flex;
     justify-content: space-between;
     gap: 12px;
+    border-top: 1px solid var(--line-hairline);
+    padding-top: 20px;
   }
 
   .help-line {
@@ -404,31 +490,146 @@
   <div class="header-inner">
     <span class="eyebrow">Onboarding do aluno novo · EaD</span>
     <h1 class="headline">Vamos começar sua jornada.</h1>
-    <p class="subhead">Siga os passos abaixo no seu ritmo — você pode voltar e avançar quando quiser.</p>
+    <p class="subhead">São 11 passos, na ordem. Seu progresso fica salvo neste navegador e você pode voltar a qualquer passo já visto.</p>
   </div>
 </header>
 
-<main>
-  <div class="step-card">
-    <div class="step-top">
-      <span class="eyebrow eyebrow--muted" id="step-label">Passo 1 de 11</span>
-      <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
-    </div>
+<main class="journey" id="jornada">
+  <nav class="timeline-wrap" aria-label="Passos do onboarding">
+    <ol class="timeline" id="timeline">
+      <li><a class="timeline-link" href="#passo-1" data-step="1"><span class="timeline-num">1</span><span class="timeline-label">Boas-vindas</span></a></li>
+      <li><a class="timeline-link" href="#passo-2" data-step="2"><span class="timeline-num">2</span><span class="timeline-label">WebAluno</span></a></li>
+      <li><a class="timeline-link" href="#passo-3" data-step="3"><span class="timeline-num">3</span><span class="timeline-label">Datas</span></a></li>
+      <li><a class="timeline-link" href="#passo-4" data-step="4"><span class="timeline-num">4</span><span class="timeline-label">Sistemas</span></a></li>
+      <li><a class="timeline-link" href="#passo-5" data-step="5"><span class="timeline-num">5</span><span class="timeline-label">Avaliações 1</span></a></li>
+      <li><a class="timeline-link" href="#passo-6" data-step="6"><span class="timeline-num">6</span><span class="timeline-label">Avaliações 2</span></a></li>
+      <li><a class="timeline-link" href="#passo-7" data-step="7"><span class="timeline-num">7</span><span class="timeline-label">Comunicação 1</span></a></li>
+      <li><a class="timeline-link" href="#passo-8" data-step="8"><span class="timeline-num">8</span><span class="timeline-label">Comunicação 2</span></a></li>
+      <li><a class="timeline-link" href="#passo-9" data-step="9"><span class="timeline-num">9</span><span class="timeline-label">Ajuda</span></a></li>
+      <li><a class="timeline-link" href="#passo-10" data-step="10"><span class="timeline-num">10</span><span class="timeline-label">Checklist 1</span></a></li>
+      <li><a class="timeline-link" href="#passo-11" data-step="11"><span class="timeline-num">11</span><span class="timeline-label">Checklist 2</span></a></li>
+    </ol>
+  </nav>
 
-    <h2 class="step-title" id="step-title"></h2>
-    <div class="bullets" id="step-bullets"></div>
-    <div id="step-callout"></div>
-    <div id="step-cta"></div>
-
-    <div class="step-nav">
-      <div class="dots" id="step-dots"></div>
-      <div class="step-nav-buttons">
-        <button class="btn btn-outline" id="prev-btn" type="button">&larr; Anterior</button>
-        <button class="btn btn-primary" id="next-btn" type="button">Próximo &rarr;</button>
-      </div>
-      <p class="help-line">Ficou com dúvida? <a href="espaco-academico/index.html">Busque na Central de Dúvidas EaD</a>.</p>
+  <section class="step" id="passo-1" aria-labelledby="passo-1-titulo">
+    <span class="eyebrow eyebrow--muted">Passo 1 de 11</span>
+    <h2 class="step-title" id="passo-1-titulo" tabindex="-1">Bem-vindo à ULBRA!</h2>
+    <div class="bullets">
+      <div><p class="bullet-title">Modalidade 100% on-line</p><p class="bullet-text">Você estuda no seu ritmo, de onde quiser. Aulas, materiais e atividades estão disponíveis 24h na Plataforma Aula.</p></div>
+      <div><p class="bullet-title">Polo de apoio presencial</p><p class="bullet-text">Você está vinculado a um polo onde realizará as avaliações presenciais. Anote o endereço e os contatos do seu polo.</p></div>
     </div>
-  </div>
+    <div class="callout"><span class="callout-label">Vale lembrar</span><p class="callout-text">Este guia reúne o passo a passo essencial para você começar bem na ULBRA. Avance no seu ritmo.</p></div>
+    <div class="step-nav"><span></span><a class="btn btn-primary" href="#passo-2">Próximo &rarr;</a></div>
+  </section>
+
+  <section class="step" id="passo-2" aria-labelledby="passo-2-titulo">
+    <span class="eyebrow eyebrow--muted">Passo 2 de 11</span>
+    <h2 class="step-title" id="passo-2-titulo" tabindex="-1">WebAluno: seu portal principal</h2>
+    <div class="bullets">
+      <div><p class="bullet-title">WebAluno</p><p class="bullet-text">Portal principal: matrícula, notas, dados do curso e acesso aos demais sistemas.</p></div>
+      <div><p class="bullet-title">Primeiro acesso</p><p class="bullet-text">No WebAluno, use seu CPF como usuário e sua data de nascimento (ddmmaa) como senha. Exemplo: nascido em 01/02/2000 → senha inicial 010200.</p></div>
+    </div>
+    <div class="callout"><span class="callout-label">Vale lembrar</span><p class="callout-text">Todos os sistemas são acessados pelo Espaço Acadêmico no site da ULBRA (Já sou aluno).</p></div>
+    <div class="step-nav"><a class="btn btn-outline" href="#passo-1">&larr; Anterior</a><a class="btn btn-primary" href="#passo-3">Próximo &rarr;</a></div>
+  </section>
+
+  <section class="step" id="passo-3" aria-labelledby="passo-3-titulo">
+    <span class="eyebrow eyebrow--muted">Passo 3 de 11</span>
+    <h2 class="step-title" id="passo-3-titulo" tabindex="-1">Datas que você precisa marcar</h2>
+    <div class="bullets">
+      <div><p class="bullet-title">Datas que você precisa marcar</p><p class="bullet-text">Início e fim das aulas, períodos da AP1 e da AP2 (Avaliações Parciais 1 e 2), Avaliação Semestral (AS), Avaliação Final (AF) e prazo de rematrícula.</p></div>
+      <div><p class="bullet-title">Salve no seu celular</p><p class="bullet-text">Registre as datas críticas na agenda com lembretes de antecedência — especialmente para as avaliações.</p></div>
+    </div>
+    <a class="btn btn-outline step-cta" href="calendario-ead.html">Abrir calendário acadêmico</a>
+    <div class="step-nav"><a class="btn btn-outline" href="#passo-2">&larr; Anterior</a><a class="btn btn-primary" href="#passo-4">Próximo &rarr;</a></div>
+  </section>
+
+  <section class="step" id="passo-4" aria-labelledby="passo-4-titulo">
+    <span class="eyebrow eyebrow--muted">Passo 4 de 11</span>
+    <h2 class="step-title" id="passo-4-titulo" tabindex="-1">Sistemas e calendário</h2>
+    <div class="bullets">
+      <div><p class="bullet-title">Plataforma Aula</p><p class="bullet-text">Onde você assiste aulas, realiza atividades, interage com professores e faz as provas AP1 e AP2.</p></div>
+      <div><p class="bullet-title">Prazos são sua responsabilidade</p><p class="bullet-text">Cumprir os prazos depende de você. Use o calendário acadêmico para organizar o semestre.</p></div>
+      <div><p class="bullet-title">Existe mais de um calendário</p><p class="bullet-text">Há calendários para presencial, medicina, EaD e semipresencial. Consulte sempre o calendário EaD.</p></div>
+    </div>
+    <div class="step-nav"><a class="btn btn-outline" href="#passo-3">&larr; Anterior</a><a class="btn btn-primary" href="#passo-5">Próximo &rarr;</a></div>
+  </section>
+
+  <section class="step" id="passo-5" aria-labelledby="passo-5-titulo">
+    <span class="eyebrow eyebrow--muted">Passo 5 de 11</span>
+    <h2 class="step-title" id="passo-5-titulo" tabindex="-1">Como funcionam as avaliações (1/2)</h2>
+    <div class="bullets">
+      <div><p class="bullet-title">AP1 e AP2 — on-line (Plataforma Aula)</p><p class="bullet-text">Prova objetiva + atividade prática. AP1 vale 2,0 pts; AP2 vale 3,0 pts.</p></div>
+      <div><p class="bullet-title">AS — presencial no polo</p><p class="bullet-text">Avaliação Semestral vale 5,0 pts. Deve ser agendada com antecedência no polo de apoio.</p></div>
+    </div>
+    <div class="callout"><span class="callout-label">O que significam as siglas</span><p class="callout-text"><strong>AP1</strong> = Avaliação Parcial 1 · <strong>AP2</strong> = Avaliação Parcial 2 · <strong>AS</strong> = Avaliação Semestral · <strong>AF</strong> = Avaliação Final</p></div>
+    <div class="step-nav"><a class="btn btn-outline" href="#passo-4">&larr; Anterior</a><a class="btn btn-primary" href="#passo-6">Próximo &rarr;</a></div>
+  </section>
+
+  <section class="step" id="passo-6" aria-labelledby="passo-6-titulo">
+    <span class="eyebrow eyebrow--muted">Passo 6 de 11</span>
+    <h2 class="step-title" id="passo-6-titulo" tabindex="-1">Como funcionam as avaliações (2/2)</h2>
+    <div class="bullets">
+      <div><p class="bullet-title">AF — segunda chance presencial</p><p class="bullet-text">Para quem ficou abaixo de 6,0 pts. A nota final é a maior entre a PS e a AF.</p></div>
+      <div><p class="bullet-title">Aprovação com PS ≥ 6,0</p><p class="bullet-text">PS = AP1 + AP2 + AS. Resultado igual ou superior a 6,0 = aprovado!</p></div>
+    </div>
+    <div class="step-nav"><a class="btn btn-outline" href="#passo-5">&larr; Anterior</a><a class="btn btn-primary" href="#passo-7">Próximo &rarr;</a></div>
+  </section>
+
+  <section class="step" id="passo-7" aria-labelledby="passo-7-titulo">
+    <span class="eyebrow eyebrow--muted">Passo 7 de 11</span>
+    <h2 class="step-title" id="passo-7-titulo" tabindex="-1">Comunicação e suporte (1/2)</h2>
+    <div class="bullets">
+      <div><p class="bullet-title">Crie seu e-mail institucional</p><p class="bullet-text">Dentro do WebAluno, crie seu e-mail institucional com usuário e senha definitivos — é por ele que chegam os comunicados oficiais.</p></div>
+      <div><p class="bullet-title">Webmail institucional</p><p class="bullet-text">Comunicados oficiais chegam exclusivamente por aqui. Acesse com regularidade!</p></div>
+    </div>
+    <div class="step-nav"><a class="btn btn-outline" href="#passo-6">&larr; Anterior</a><a class="btn btn-primary" href="#passo-8">Próximo &rarr;</a></div>
+  </section>
+
+  <section class="step" id="passo-8" aria-labelledby="passo-8-titulo">
+    <span class="eyebrow eyebrow--muted">Passo 8 de 11</span>
+    <h2 class="step-title" id="passo-8-titulo" tabindex="-1">Comunicação e suporte (2/2)</h2>
+    <div class="bullets">
+      <div><p class="bullet-title">Polo de apoio presencial</p><p class="bullet-text">Primeiro ponto de contato para dúvidas, provas e suporte local. Guarde o contato do seu polo!</p></div>
+      <div><p class="bullet-title">Professores e tutores</p><p class="bullet-text">Tire dúvidas de conteúdo pelos fóruns e mensagens na Plataforma Aula.</p></div>
+    </div>
+    <div class="step-nav"><a class="btn btn-outline" href="#passo-7">&larr; Anterior</a><a class="btn btn-primary" href="#passo-9">Próximo &rarr;</a></div>
+  </section>
+
+  <section class="step" id="passo-9" aria-labelledby="passo-9-titulo">
+    <span class="eyebrow eyebrow--muted">Passo 9 de 11</span>
+    <h2 class="step-title" id="passo-9-titulo" tabindex="-1">Quando precisar de mais ajuda</h2>
+    <div class="bullets">
+      <div><p class="bullet-title">Central de Relacionamento EaD</p><p class="bullet-text">Para dúvidas não resolvidas no polo, problemas técnicos e solicitações acadêmicas: (51) 99274-1192 (ligação ou WhatsApp) ou relac.canoas@ulbra.br.</p></div>
+      <div><p class="bullet-title">Coordenação do curso</p><p class="bullet-text">Para grade, aproveitamento de disciplinas e orientações específicas da Indústria Criativa, fale com a coordenação.</p></div>
+    </div>
+    <a class="btn btn-outline step-cta" href="contatos.html">Ver contatos da coordenação</a>
+    <div class="step-nav"><a class="btn btn-outline" href="#passo-8">&larr; Anterior</a><a class="btn btn-primary" href="#passo-10">Próximo &rarr;</a></div>
+  </section>
+
+  <section class="step" id="passo-10" aria-labelledby="passo-10-titulo">
+    <span class="eyebrow eyebrow--muted">Passo 10 de 11</span>
+    <h2 class="step-title" id="passo-10-titulo" tabindex="-1">Checklist: primeiros passos (1/2)</h2>
+    <ul class="checklist">
+      <li><input type="checkbox" id="check-1" data-check="1"><label for="check-1"><span class="bullet-title">1. Acesse o WebAluno</span><span class="bullet-text">Confirme seus dados, curso e polo de apoio.</span></label></li>
+      <li><input type="checkbox" id="check-2" data-check="2"><label for="check-2"><span class="bullet-title">2. Entre na Plataforma Aula</span><span class="bullet-text">Conheça suas disciplinas e ative todas as notificações.</span></label></li>
+      <li><input type="checkbox" id="check-3" data-check="3"><label for="check-3"><span class="bullet-title">3. Consulte o calendário EaD</span><span class="bullet-text">Marque as datas das avaliações na sua agenda agora!</span></label></li>
+    </ul>
+    <div class="step-nav"><a class="btn btn-outline" href="#passo-9">&larr; Anterior</a><a class="btn btn-primary" href="#passo-11">Próximo &rarr;</a></div>
+  </section>
+
+  <section class="step" id="passo-11" aria-labelledby="passo-11-titulo">
+    <span class="eyebrow eyebrow--muted">Passo 11 de 11</span>
+    <h2 class="step-title" id="passo-11-titulo" tabindex="-1">Checklist: primeiros passos (2/2)</h2>
+    <ul class="checklist">
+      <li><input type="checkbox" id="check-4" data-check="4"><label for="check-4"><span class="bullet-title">4. Configure o Webmail</span><span class="bullet-text">Acesse o e-mail institucional e ative os alertas de novas mensagens.</span></label></li>
+      <li><input type="checkbox" id="check-5" data-check="5"><label for="check-5"><span class="bullet-title">5. Anote o contato do polo</span><span class="bullet-text">Salve o telefone e e-mail do seu polo de apoio presencial.</span></label></li>
+    </ul>
+    <div class="callout"><span class="callout-label">Vale lembrar</span><p class="callout-text">Tudo certo! Você está pronto para começar bem no EaD ULBRA. Bons estudos!</p></div>
+    <div class="step-nav"><a class="btn btn-outline" href="#passo-10">&larr; Anterior</a><a class="btn btn-primary" href="https://ac3949.mannesoftprime.com.br/webaluno/" target="_blank" rel="noopener">Acessar o WebAluno <span aria-hidden="true">↗</span></a></div>
+  </section>
+
+  <p class="help-line">Ficou com dúvida? <a href="espaco-academico/index.html">Busque na Central de Dúvidas EaD</a>.</p>
 </main>
 
 <footer class="footer">
@@ -453,181 +654,107 @@
 </footer>
 
 <script>
-  var STEPS = [
-    {
-      title: 'Bem-vindo à ULBRA!',
-      bullets: [
-        { title: 'Modalidade 100% on-line', text: 'Você estuda no seu ritmo, de onde quiser. Aulas, materiais e atividades estão disponíveis 24h na Plataforma Aula.' },
-        { title: 'Polo de apoio presencial', text: 'Você está vinculado a um polo onde realizará as avaliações presenciais. Anote o endereço e os contatos do seu polo.' }
-      ],
-      note: 'Este guia reúne o passo a passo essencial para você começar bem na ULBRA. Avance no seu ritmo.'
-    },
-    {
-      title: 'WebAluno: seu portal principal',
-      bullets: [
-        { title: 'WebAluno', text: 'Portal principal: matrícula, notas, dados do curso e acesso aos demais sistemas.' },
-        { title: 'Primeiro acesso', text: 'No WebAluno, use seu CPF como usuário e sua data de nascimento (ddmmaa) como senha. Exemplo: nascido em 01/02/2000 → senha inicial 010200.' }
-      ],
-      note: 'Todos os sistemas são acessados pelo Espaço Acadêmico no site da ULBRA (Já sou aluno).'
-    },
-    {
-      title: 'Datas que você precisa marcar',
-      bullets: [
-        { title: 'Datas que você precisa marcar', text: 'Início e fim das aulas, períodos da AP1 e da AP2 (Avaliações Parciais 1 e 2), Avaliação Semestral (AS), Avaliação Final (AF) e prazo de rematrícula.' },
-        { title: 'Salve no seu celular', text: 'Registre as datas críticas na agenda com lembretes de antecedência — especialmente para as avaliações.' }
-      ],
-      cta: { label: 'Abrir calendário acadêmico', href: 'calendario-ead.html' }
-    },
-    {
-      title: 'Sistemas e calendário',
-      bullets: [
-        { title: 'Plataforma Aula', text: 'Onde você assiste aulas, realiza atividades, interage com professores e faz as provas AP1 e AP2.' },
-        { title: 'Prazos são sua responsabilidade', text: 'Cumprir os prazos depende de você. Use o calendário acadêmico para organizar o semestre.' },
-        { title: 'Existe mais de um calendário', text: 'Há calendários para presencial, medicina, EaD e semipresencial. Consulte sempre o calendário EaD.' }
-      ]
-    },
-    {
-      title: 'Como funcionam as avaliações (1/2)',
-      bullets: [
-        { title: 'AP1 e AP2 — on-line (Plataforma Aula)', text: 'Prova objetiva + atividade prática. AP1 vale 2,0 pts; AP2 vale 3,0 pts.' },
-        { title: 'AS — presencial no polo', text: 'Avaliação Semestral vale 5,0 pts. Deve ser agendada com antecedência no polo de apoio.' }
-      ],
-      note: '<strong>AP1</strong> = Avaliação Parcial 1 · <strong>AP2</strong> = Avaliação Parcial 2 · <strong>AS</strong> = Avaliação Semestral · <strong>AF</strong> = Avaliação Final',
-      noteLabel: 'O que significam as siglas'
-    },
-    {
-      title: 'Como funcionam as avaliações (2/2)',
-      bullets: [
-        { title: 'AF — segunda chance presencial', text: 'Para quem ficou abaixo de 6,0 pts. A nota final é a maior entre a PS e a AF.' },
-        { title: 'Aprovação com PS ≥ 6,0', text: 'PS = AP1 + AP2 + AS. Resultado igual ou superior a 6,0 = aprovado!' }
-      ]
-    },
-    {
-      title: 'Comunicação e suporte (1/2)',
-      bullets: [
-        { title: 'Crie seu e-mail institucional', text: 'Dentro do WebAluno, crie seu e-mail institucional com usuário e senha definitivos — é por ele que chegam os comunicados oficiais.' },
-        { title: 'Webmail institucional', text: 'Comunicados oficiais chegam exclusivamente por aqui. Acesse com regularidade!' }
-      ]
-    },
-    {
-      title: 'Comunicação e suporte (2/2)',
-      bullets: [
-        { title: 'Polo de apoio presencial', text: 'Primeiro ponto de contato para dúvidas, provas e suporte local. Guarde o contato do seu polo!' },
-        { title: 'Professores e tutores', text: 'Tire dúvidas de conteúdo pelos fóruns e mensagens na Plataforma Aula.' }
-      ]
-    },
-    {
-      title: 'Quando precisar de mais ajuda',
-      bullets: [
-        { title: 'Central de Relacionamento EaD', text: 'Para dúvidas não resolvidas no polo, problemas técnicos e solicitações acadêmicas: (51) 99274-1192 (ligação ou WhatsApp) ou relac.canoas@ulbra.br.' },
-        { title: 'Coordenação do curso', text: 'Para grade, aproveitamento de disciplinas e orientações específicas da Indústria Criativa, fale com a coordenação.' }
-      ],
-      cta: { label: 'Ver contatos da coordenação', href: 'contatos.html' }
-    },
-    {
-      title: 'Checklist: primeiros passos (1/2)',
-      bullets: [
-        { title: '1. Acesse o WebAluno', text: 'Confirme seus dados, curso e polo de apoio.' },
-        { title: '2. Entre na Plataforma Aula', text: 'Conheça suas disciplinas e ative todas as notificações.' },
-        { title: '3. Consulte o calendário EaD', text: 'Marque as datas das avaliações na sua agenda agora!' }
-      ]
-    },
-    {
-      title: 'Checklist: primeiros passos (2/2)',
-      bullets: [
-        { title: '4. Configure o Webmail', text: 'Acesse o e-mail institucional e ative os alertas de novas mensagens.' },
-        { title: '5. Anote o contato do polo', text: 'Salve o telefone e e-mail do seu polo de apoio presencial.' }
-      ],
-      note: 'Tudo certo! Você está pronto para começar bem no EaD ULBRA. Bons estudos!'
+  // Com JS, a jornada mostra um passo por vez (#passo-N na URL), lembra o
+  // progresso e só deixa avançar um passo além do último já visto.
+  // Sem JS, todos os passos aparecem em sequência e os links funcionam.
+  (function () {
+    var STORAGE_KEY = 'onboarding-ead-progresso';
+    var CHECK_KEY = 'onboarding-ead-checklist';
+    var steps = document.querySelectorAll('.step');
+    var total = steps.length;
+    var items = document.querySelectorAll('#timeline li');
+    var current = 1;
+    var maxReached = 1;
+
+    function load(key) {
+      try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (e) { return null; }
     }
-  ];
+    function store(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+    }
 
-  var stepLabelEl = document.getElementById('step-label');
-  var progressFillEl = document.getElementById('progress-fill');
-  var titleEl = document.getElementById('step-title');
-  var bulletsEl = document.getElementById('step-bullets');
-  var calloutEl = document.getElementById('step-callout');
-  var ctaEl = document.getElementById('step-cta');
-  var dotsEl = document.getElementById('step-dots');
-  var prevBtn = document.getElementById('prev-btn');
-  var nextBtn = document.getElementById('next-btn');
-
-  // Progresso salvo no navegador: o aluno retoma de onde parou e só pode
-  // pular para passos que já visitou.
-  var STORAGE_KEY = 'onboarding-ead-progresso';
-  var current = 0;
-  var maxReached = 0;
-
-  try {
-    var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+    var saved = load(STORAGE_KEY);
     if (saved) {
-      maxReached = Math.min(STEPS.length - 1, Math.max(0, Number(saved.max) || 0));
-      current = Math.min(maxReached, Math.max(0, Number(saved.current) || 0));
+      // Progresso salvo pela versão anterior (passos contados a partir de 0).
+      var base = saved.v === 2 ? 0 : 1;
+      maxReached = Math.min(total, Math.max(1, (Number(saved.max) || 0) + base));
+      current = Math.min(maxReached, Math.max(1, (Number(saved.current) || 0) + base));
     }
-  } catch (e) {}
 
-  function save() {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ current: current, max: maxReached }));
-    } catch (e) {}
-  }
+    function stepFromHash() {
+      var m = /^#passo-(\d+)$/.exec(location.hash);
+      return m ? Number(m[1]) : null;
+    }
 
-  function render() {
-    var step = STEPS[current];
-    var total = STEPS.length;
-    var isLast = current === total - 1;
+    function show(n, focus) {
+      current = n;
+      maxReached = Math.max(maxReached, n);
+      store(STORAGE_KEY, { v: 2, current: current, max: maxReached });
 
-    stepLabelEl.textContent = 'Passo ' + (current + 1) + ' de ' + total;
-    progressFillEl.style.width = Math.round(((current + 1) / total) * 100) + '%';
-    titleEl.textContent = step.title;
+      Array.prototype.forEach.call(steps, function (el, i) {
+        el.classList.toggle('is-current', i + 1 === n);
+      });
+      Array.prototype.forEach.call(items, function (li, i) {
+        var step = i + 1;
+        var link = li.querySelector('a');
+        var locked = step > maxReached;
+        li.classList.toggle('is-current', step === n);
+        li.classList.toggle('is-done', step <= maxReached && step !== n);
+        if (step === n) link.setAttribute('aria-current', 'step'); else link.removeAttribute('aria-current');
+        if (locked) {
+          link.setAttribute('aria-disabled', 'true');
+          link.setAttribute('tabindex', '-1');
+        } else {
+          link.removeAttribute('aria-disabled');
+          link.removeAttribute('tabindex');
+        }
+      });
 
-    bulletsEl.innerHTML = step.bullets.map(function (b) {
-      return '<div><p class="bullet-title">' + b.title + '</p><p class="bullet-text">' + b.text + '</p></div>';
-    }).join('');
+      // No celular a linha do tempo rola de lado: centraliza o passo atual.
+      var wrap = document.querySelector('.timeline-wrap');
+      var atual = items[n - 1];
+      wrap.scrollLeft = atual.offsetLeft - (wrap.clientWidth - atual.offsetWidth) / 2;
 
-    calloutEl.innerHTML = step.note
-      ? '<div class="callout"><span class="callout-label">' + (step.noteLabel || 'Vale lembrar') + '</span><p class="callout-text">' + step.note + '</p></div>'
-      : '';
+      if (focus) {
+        document.getElementById('jornada').scrollIntoView();
+        document.getElementById('passo-' + n + '-titulo').focus({ preventScroll: true });
+      }
+    }
 
-    ctaEl.innerHTML = step.cta
-      ? '<a class="btn btn-outline step-cta" href="' + step.cta.href + '">' + step.cta.label + '</a>'
-      : '';
+    // Só abre passos já vistos ou o seguinte ao atual; o resto volta ao último liberado.
+    function go(n, focus) {
+      if (!n || n < 1 || n > total) n = current;
+      if (n > maxReached && n !== current + 1) n = maxReached;
+      if (location.hash !== '#passo-' + n) history.replaceState(null, '', '#passo-' + n);
+      show(n, focus);
+    }
 
-    maxReached = Math.max(maxReached, current);
-    save();
-
-    dotsEl.innerHTML = STEPS.map(function (_, i) {
-      var locked = i > maxReached;
-      return '<button class="dot' + (i === current ? ' is-active' : '') + (i <= maxReached ? ' is-visited' : '') + '" data-step="' + i + '" type="button"' + (locked ? ' disabled' : '') + ' aria-label="' + (locked ? 'Passo ' + (i + 1) + ' (ainda não liberado)' : 'Ir para o passo ' + (i + 1)) + '" aria-current="' + (i === current ? 'step' : 'false') + '"></button>';
-    }).join('');
-    Array.prototype.forEach.call(dotsEl.querySelectorAll('.dot'), function (btn) {
-      btn.addEventListener('click', function () {
-        current = Number(btn.dataset.step);
-        render();
+    Array.prototype.forEach.call(items, function (li) {
+      li.querySelector('a').addEventListener('click', function (e) {
+        if (this.getAttribute('aria-disabled') === 'true') e.preventDefault();
       });
     });
 
-    prevBtn.disabled = current === 0;
-    nextBtn.innerHTML = isLast ? 'Acessar o WebAluno &rarr;' : 'Próximo &rarr;';
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  prevBtn.addEventListener('click', function () {
-    current = Math.max(0, current - 1);
-    render();
-  });
-
-  nextBtn.addEventListener('click', function () {
-    if (current === STEPS.length - 1) {
-      window.open('https://ac3949.mannesoftprime.com.br/webaluno/', '_blank', 'noopener');
-    } else {
-      current = Math.min(STEPS.length - 1, current + 1);
-      render();
+    window.addEventListener('hashchange', function () { go(stepFromHash(), true); });
+    var veioComPasso = stepFromHash();
+    go(veioComPasso || current, false);
+    // Link direto para um passo: mostra a linha do tempo junto, em vez de pular para o meio.
+    if (veioComPasso) {
+      window.addEventListener('load', function () {
+        setTimeout(function () { document.getElementById('jornada').scrollIntoView(); }, 0);
+      });
     }
-  });
 
-  render();
+    // Checklist final.
+    var checks = load(CHECK_KEY) || {};
+    Array.prototype.forEach.call(document.querySelectorAll('[data-check]'), function (box) {
+      box.checked = !!checks[box.dataset.check];
+      box.addEventListener('change', function () {
+        checks[box.dataset.check] = box.checked;
+        store(CHECK_KEY, checks);
+      });
+    });
+  })();
 </script>
 
 </body>

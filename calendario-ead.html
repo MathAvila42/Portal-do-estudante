@@ -142,6 +142,114 @@
     gap: 56px;
   }
 
+  .stage-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #ffffff;
+    border-bottom: 1px solid var(--line-hairline);
+  }
+
+  .stage-nav-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 12px 32px;
+    display: flex;
+    gap: 8px 24px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .stage-nav a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--green-600);
+    text-decoration: none;
+  }
+
+  .stage-nav a:hover {
+    color: var(--green-900);
+    text-decoration: underline;
+  }
+
+  .stage,
+  .upcoming {
+    scroll-margin-top: 64px;
+  }
+
+  .upcoming {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .upcoming-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px 24px;
+  }
+
+  .upcoming-head .stage-title {
+    margin-top: 6px;
+  }
+
+  .upcoming-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+  }
+
+  .upcoming-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 22px;
+    border-radius: 12px;
+    background: var(--green-900);
+    color: #c6ddd0;
+  }
+
+  .upcoming-card:first-child {
+    background: var(--green-600);
+  }
+
+  .upcoming-weekday {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--gold-300);
+  }
+
+  .upcoming-date {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px;
+    line-height: 1.1;
+    color: var(--gold-100);
+  }
+
+  .upcoming-text {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .upcoming-card a {
+    margin-top: auto;
+    padding-top: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold-100);
+  }
+
+  .upcoming-note {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
   .stage {
     display: flex;
     flex-direction: column;
@@ -298,6 +406,9 @@
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
     transition: background-color .2s ease, color .2s ease;
   }
 
@@ -417,9 +528,31 @@
   </div>
 </header>
 
+<nav class="stage-nav" aria-label="Etapas do calendário">
+  <div class="stage-nav-inner">
+    <a href="#proximas">Próximas datas</a>
+    <a href="#etapa-1">1 · Aulas</a>
+    <a href="#etapa-2">2 · Avaliações</a>
+    <a href="#etapa-3">3 · Matrícula e prazos</a>
+    <a href="#etapa-4">4 · Feriados</a>
+  </div>
+</nav>
+
 <main>
 
-  <section class="stage">
+  <section class="upcoming" id="proximas">
+    <div class="upcoming-head">
+      <div>
+        <span class="eyebrow eyebrow--muted">Próximas datas</span>
+        <h2 class="stage-title">O que vem por aí</h2>
+      </div>
+      <button class="btn btn-primary" id="baixar-ics" type="button">Adicionar todas ao calendário (.ics)</button>
+    </div>
+    <div class="upcoming-grid" id="proximas-datas"></div>
+    <p class="upcoming-note">O arquivo .ics funciona no Google Agenda (Configurações → Importar), no Apple Calendário e no Outlook.</p>
+  </section>
+
+  <section class="stage" id="etapa-1">
     <div class="stage-header">
       <span class="eyebrow eyebrow--muted">Etapa 1</span>
       <h2 class="stage-title">Abertura e início das aulas</h2>
@@ -427,7 +560,7 @@
     <div class="rows" data-stage="1"></div>
   </section>
 
-  <section class="stage">
+  <section class="stage" id="etapa-2">
     <div class="stage-header">
       <span class="eyebrow eyebrow--muted">Etapa 2</span>
       <h2 class="stage-title">Avaliações das disciplinas EaD</h2>
@@ -440,7 +573,7 @@
     <div class="rows" data-stage="2"></div>
   </section>
 
-  <section class="stage">
+  <section class="stage" id="etapa-3">
     <div class="stage-header">
       <span class="eyebrow eyebrow--muted">Etapa 3</span>
       <h2 class="stage-title">Matrícula, trancamento e prazos financeiros</h2>
@@ -448,7 +581,7 @@
     <div class="rows" data-stage="3"></div>
   </section>
 
-  <section class="stage">
+  <section class="stage" id="etapa-4">
     <div class="stage-header">
       <span class="eyebrow eyebrow--muted">Etapa 4</span>
       <h2 class="stage-title">Feriados e recessos</h2>
@@ -520,6 +653,40 @@
       var data = e.end ? dm(e.start) + ' a ' + dm(e.end) : dm(e.start);
       return '<div class="' + cls + '"><span class="row-date">' + data + '</span><span class="row-text">' + e.text + badge + '</span></div>';
     }
+
+    // Próximas 3 datas, cada uma com link para o Google Agenda.
+    var proximasEl = document.getElementById('proximas-datas');
+    var proximas = calendarioProximos(3);
+    if (!proximas.length) {
+      proximasEl.innerHTML = '<p class="upcoming-text">O semestre 2026/2 já foi concluído.</p>';
+    }
+    proximas.forEach(function (m) {
+      var card = document.createElement('div');
+      card.className = 'upcoming-card';
+      var d = new Date(m.date + 'T12:00:00');
+      card.innerHTML =
+        '<span class="upcoming-weekday"></span>' +
+        '<span class="upcoming-date"></span>' +
+        '<p class="upcoming-text"></p>' +
+        '<a target="_blank" rel="noopener">Adicionar ao Google Calendar <span aria-hidden="true">↗</span></a>';
+      card.querySelector('.upcoming-weekday').textContent = calendarioDiaSemana(m.date, 'long');
+      card.querySelector('.upcoming-date').textContent = d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' });
+      card.querySelector('.upcoming-text').textContent = m.label;
+      card.querySelector('a').href = calendarioLinkGoogle(m.label, m.date);
+      proximasEl.appendChild(card);
+    });
+
+    // Baixa todas as datas num arquivo .ics.
+    document.getElementById('baixar-ics').addEventListener('click', function () {
+      var blob = new Blob([calendarioIcs()], { type: 'text/calendar;charset=utf-8' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'calendario-ead-2026-2.ics';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    });
 
     Array.prototype.forEach.call(document.querySelectorAll('[data-stage]'), function (el) {
       var stage = Number(el.dataset.stage);

@@ -74,3 +74,64 @@ function calendarioMarcos() {
     return lista;
   }, []);
 }
+
+// Próximos marcos a partir de hoje (inclui hoje).
+function calendarioProximos(qtd) {
+  var hoje = calendarioHoje();
+  return calendarioMarcos().filter(function (m) { return m.date >= hoje; }).slice(0, qtd);
+}
+
+function calendarioDiaSeguinte(iso) {
+  var d = new Date(iso + 'T12:00:00');
+  d.setDate(d.getDate() + 1);
+  return d.getFullYear() + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0');
+}
+
+function calendarioSemTags(texto) {
+  return texto.replace(/<[^>]+>/g, '');
+}
+
+// Link "Adicionar ao Google Calendar" para um evento de dia inteiro.
+function calendarioLinkGoogle(titulo, inicio, fim) {
+  var datas = inicio.replace(/-/g, '') + '/' + calendarioDiaSeguinte(fim || inicio);
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+    '&text=' + encodeURIComponent(titulo) +
+    '&dates=' + datas +
+    '&details=' + encodeURIComponent('Calendário EaD 2026/2 · Portal do Estudante da Indústria Criativa (Ulbra)');
+}
+
+// Arquivo .ics com todas as datas do semestre (eventos de dia inteiro).
+function calendarioIcs() {
+  function esc(t) {
+    return t.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,');
+  }
+  var linhas = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Portal do Estudante Industria Criativa//Calendario EaD 2026-2//PT',
+    'CALSCALE:GREGORIAN',
+    'X-WR-CALNAME:Calendário EaD 2026/2'
+  ];
+  CALENDARIO.forEach(function (e, i) {
+    linhas.push(
+      'BEGIN:VEVENT',
+      'UID:ead-2026-2-' + i + '@portal-do-estudante',
+      'DTSTAMP:20260801T000000Z',
+      'DTSTART;VALUE=DATE:' + e.start.replace(/-/g, ''),
+      'DTEND;VALUE=DATE:' + calendarioDiaSeguinte(e.end || e.start),
+      'SUMMARY:' + esc(calendarioSemTags(e.text)),
+      'END:VEVENT'
+    );
+  });
+  linhas.push('END:VCALENDAR');
+  // Linhas longas são dobradas (o formato pede no máximo 75 bytes por linha).
+  return linhas.map(function (l) {
+    var partes = [];
+    while (l.length > 60) {
+      partes.push(l.slice(0, 60));
+      l = ' ' + l.slice(60);
+    }
+    partes.push(l);
+    return partes.join('\r\n');
+  }).join('\r\n') + '\r\n';
+}
