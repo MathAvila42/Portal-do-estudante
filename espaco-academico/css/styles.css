@@ -55,9 +55,13 @@ a { text-decoration: none; color: inherit; }
 }
 
 .topnav-brand {
-  font-size: 14px;
-  font-weight: 600;
-  color: #f5ce99;
+  display: flex;
+  align-items: center;
+}
+
+.topnav-brand img {
+  display: block;
+  height: 28px;
 }
 
 .topnav-links {

@@ -34,6 +34,12 @@ var CALENDARIO = [
   { stage: 4, start: '2026-12-25', text: 'Natal', short: 'Natal (feriado)' }
 ];
 
+// Dia da semana de uma data AAAA-MM-DD: 'long' → "segunda-feira", 'short' → "seg".
+function calendarioDiaSemana(iso, formato) {
+  var nome = new Date(iso + 'T12:00:00').toLocaleDateString('pt-BR', { weekday: formato === 'short' ? 'short' : 'long' });
+  return nome.replace('.', '');
+}
+
 // Data de hoje em AAAA-MM-DD, no fuso do aluno.
 function calendarioHoje() {
   var d = new Date();
