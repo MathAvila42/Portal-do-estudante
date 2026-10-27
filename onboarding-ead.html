@@ -55,10 +55,13 @@
   }
 
   .topnav-brand {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gold-100);
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .topnav-brand img {
+    display: block;
+    height: 28px;
   }
 
   .topnav-links {
@@ -96,9 +99,6 @@
     align-items: flex-start;
   }
 
-  .logo {
-    height: 38px;
-  }
 
   .eyebrow {
     font-size: 13px;
@@ -389,7 +389,7 @@
 
 <nav class="topnav">
   <div class="topnav-inner">
-    <a class="topnav-brand" href="index.html">Portal do Estudante · Indústria Criativa</a>
+    <a class="topnav-brand" href="index.html"><img src="assets/logo-ulbra-branco.png" alt="Ulbra Online · Portal do Estudante"></a>
     <div class="topnav-links">
       <a href="index.html">Início</a>
       <a href="calendario-ead.html">Calendário</a>
@@ -402,7 +402,6 @@
 
 <header class="header">
   <div class="header-inner">
-    <img class="logo" src="assets/logo-horizontal-gold.png" alt="ULBRA">
     <span class="eyebrow">Onboarding do aluno novo · EaD</span>
     <h1 class="headline">Vamos começar sua jornada.</h1>
     <p class="subhead">Siga os passos abaixo no seu ritmo — você pode voltar e avançar quando quiser.</p>

@@ -55,10 +55,13 @@
   }
 
   .topnav-brand {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gold-100);
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .topnav-brand img {
+    display: block;
+    height: 28px;
   }
 
   .topnav-links {
@@ -96,9 +99,6 @@
     align-items: flex-start;
   }
 
-  .logo {
-    height: 44px;
-  }
 
   .eyebrow {
     font-size: 13px;
@@ -131,6 +131,24 @@
     line-height: 1.5;
     color: #c6ddd0;
     text-wrap: pretty;
+  }
+
+  .courses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .courses li {
+    padding: 6px 14px;
+    border: 1px solid rgba(204, 162, 105, .55);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gold-100);
   }
 
   main {
@@ -393,9 +411,6 @@
       gap: 14px;
     }
 
-    .logo {
-      height: 34px;
-    }
 
     .headline {
       font-size: 38px;
@@ -411,7 +426,7 @@
 
 <nav class="topnav">
   <div class="topnav-inner">
-    <a class="topnav-brand" href="index.html">Portal do Estudante · Indústria Criativa</a>
+    <a class="topnav-brand" href="index.html"><img src="assets/logo-ulbra-branco.png" alt="Ulbra Online · Portal do Estudante"></a>
     <div class="topnav-links">
       <a class="active" href="index.html">Início</a>
       <a href="calendario-ead.html">Calendário</a>
@@ -424,10 +439,14 @@
 
 <header class="header">
   <div class="header-inner">
-    <img class="logo" src="assets/logo-horizontal-gold.png" alt="ULBRA">
-    <span class="eyebrow">Indústria Criativa · Portal do Estudante</span>
     <h1 class="headline">Portal do Estudante.</h1>
     <p class="subhead">Contatos, calendário, comunidades e atendimento da Indústria Criativa.</p>
+    <ul class="courses" aria-label="Cursos da Indústria Criativa">
+      <li>Design Digital EaD</li>
+      <li>Marketing EaD</li>
+      <li>Mídias Sociais Digitais EaD</li>
+      <li>Jornalismo EaD</li>
+    </ul>
   </div>
 </header>
 
@@ -540,7 +559,7 @@
     var d = new Date(next.date + 'T00:00:00');
     el.innerHTML = '';
     var strong = document.createElement('strong');
-    strong.textContent = d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' });
+    strong.textContent = calendarioDiaSemana(next.date, 'long') + ', ' + d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' });
     el.appendChild(strong);
     el.appendChild(document.createTextNode(' · ' + next.label));
   })();
