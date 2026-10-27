@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/onboarding", "destination": "/onboarding-ead.html", "permanent": true },
+    { "source": "/onboarding/:path*", "destination": "/onboarding-ead.html", "permanent": true }
+  ]
+}
