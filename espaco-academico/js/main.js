@@ -97,7 +97,6 @@ const resultCountWrap = document.getElementById('result-count-wrap');
 const resultCountEl = document.getElementById('result-count');
 const faqSectionsEl = document.getElementById('faq-sections');
 const noResultsEl = document.getElementById('no-results');
-const quickLinksEl = document.getElementById('quick-links');
 
 const searchSuggestionsEl = document.getElementById('search-suggestions');
 
@@ -200,16 +199,6 @@ function renderPills() {
       renderFaqArea();
     });
   });
-}
-
-function renderQuickLinks() {
-  quickLinksEl.innerHTML = QUICK_LINKS.map((link) => `
-    <a class="quick-link" href="${link.href}">
-      <span class="quick-link__icon"><span class="material-symbols-outlined">${link.icon}</span></span>
-      <span class="quick-link__label">${link.label}</span>
-      <span class="quick-link__arrow">›</span>
-    </a>
-  `).join('');
 }
 
 function renderFaqItem(item) {
@@ -445,7 +434,6 @@ function closeOnboarding() {
   onboardingOverlayEl.hidden = true;
 }
 
-document.getElementById('open-onboarding').addEventListener('click', openOnboarding);
 document.getElementById('close-onboarding').addEventListener('click', closeOnboarding);
 
 onboardingPrevBtn.addEventListener('click', () => {
@@ -493,6 +481,5 @@ document.addEventListener('click', (e) => {
   if (!e.target.closest('.search')) hideSuggestions();
 });
 
-renderQuickLinks();
 renderPills();
 renderFaqArea();

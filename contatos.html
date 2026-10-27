@@ -403,21 +403,67 @@
     text-wrap: pretty;
   }
 
-  footer {
-    border-top: 1px solid var(--line-hairline);
+  .footer {
+    background: var(--green-900);
+    padding: 48px 24px 36px;
+    text-align: center;
   }
 
-  .footer-inner {
-    max-width: 1080px;
+  .footer__inner {
+    max-width: 900px;
     margin: 0 auto;
-    padding: 28px 32px 48px;
+  }
+
+  .footer__nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px 32px;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 12px 28px;
+    margin-bottom: 26px;
+  }
+
+  .footer__nav a {
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .footer__nav a:hover {
+    color: rgba(255, 255, 255, .7);
+  }
+
+  .footer__divider {
+    height: 1px;
+    background: rgba(204, 162, 105, .35);
+    margin-bottom: 32px;
+  }
+
+  .footer__logo {
+    display: block;
+    height: 34px;
+    margin: 0 auto 24px;
+  }
+
+  .footer__address {
+    max-width: 640px;
+    margin: 0 auto 18px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #ffffff;
+  }
+
+  .footer__address a {
+    color: #ffffff;
+  }
+
+  .footer__legal-link {
     font-size: 12px;
-    line-height: 1.5;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, .75);
+  }
+
+  .footer__legal-link:hover {
+    color: #ffffff;
   }
 </style>
 </head>
@@ -566,10 +612,24 @@
   </div>
 </section>
 
-<footer>
-  <div class="footer-inner">
-    <span>ULBRA · Universidade Luterana do Brasil · Campus Canoas · Mantida pela AELBRA</span>
-    <span>ulbra.br</span>
+<footer class="footer">
+  <div class="footer__inner">
+    <nav class="footer__nav">
+      <a href="#">Ensino</a>
+      <a href="#">Pesquisa</a>
+      <a href="#">Sobre a ULBRA</a>
+      <a href="#">Extensão</a>
+      <a href="#">Espaço Acadêmico</a>
+      <a href="#">Inovação</a>
+      <a href="#">Atendimento</a>
+      <a href="#">Trabalhe conosco</a>
+    </nav>
+    <div class="footer__divider"></div>
+    <img class="footer__logo" src="assets/logo-ulbra-branco.png" alt="ULBRA">
+    <p class="footer__address">
+      <strong>Ulbra EAD - Educação a Distância</strong> - Av. Farroupilha, 8001 · Saguão do Prédio 6 · Espaço Educação Continuada · Bairro São José · Canoas/RS · CEP: 92425-900 · Telefone: 0800.051.4131 · E-mail: <a href="mailto:portalead@ulbra.br">portalead@ulbra.br</a>
+    </p>
+    <a class="footer__legal-link" href="#">Política de privacidade</a>
   </div>
 </footer>
 
