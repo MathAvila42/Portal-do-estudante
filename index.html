@@ -153,9 +153,10 @@
   }
 
   .quick-card {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    align-items: start;
+    gap: 4px 14px;
     background: var(--green-900);
     border-radius: 12px;
     padding: 18px 20px;
@@ -166,6 +167,18 @@
   .quick-card:hover {
     background: var(--green-800);
     transform: translateY(-2px);
+  }
+
+  .quick-icon {
+    grid-row: span 2;
+    width: 24px;
+    height: 24px;
+    margin-top: 1px;
+    fill: none;
+    stroke: var(--gold-300);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   .quick-title {
@@ -368,6 +381,30 @@
   .footer__legal-link:hover {
     color: #ffffff;
   }
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--gold-300);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 600px) {
+    .header-inner {
+      padding: 32px 32px 36px;
+      gap: 14px;
+    }
+
+    .logo {
+      height: 34px;
+    }
+
+    .headline {
+      font-size: 38px;
+    }
+
+    .subhead {
+      font-size: 16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -390,7 +427,7 @@
     <img class="logo" src="assets/logo-horizontal-gold.png" alt="ULBRA">
     <span class="eyebrow">Indústria Criativa · Portal do Estudante</span>
     <h1 class="headline">Portal do Estudante.</h1>
-    <p class="subhead">Tudo o que você precisa durante o curso: contatos da coordenação, calendário acadêmico, comunidades e atendimento — para Design Digital, Marketing, Mídias Sociais Digitais e Jornalismo.</p>
+    <p class="subhead">Contatos, calendário, comunidades e atendimento da Indústria Criativa.</p>
   </div>
 </header>
 
@@ -411,31 +448,37 @@
     <div class="quick-grid">
 
       <a class="quick-card" href="onboarding-ead.html">
+        <svg class="quick-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         <span class="quick-title">Onboarding do aluno novo</span>
         <p class="quick-text">Primeiros passos no EaD</p>
       </a>
 
       <a class="quick-card" href="espaco-academico/index.html">
+        <svg class="quick-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <span class="quick-title">Central de Dúvidas</span>
         <p class="quick-text">Respostas rápidas</p>
       </a>
 
       <a class="quick-card" href="https://ac3949.mannesoftprime.com.br/webaluno/" target="_blank" rel="noopener">
-        <span class="quick-title">WebAluno</span>
+        <svg class="quick-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <span class="quick-title">WebAluno <span class="ext" aria-hidden="true">↗</span></span>
         <p class="quick-text">Notas, matrícula e boletos</p>
       </a>
 
       <a class="quick-card" href="calendario-ead.html">
+        <svg class="quick-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
         <span class="quick-title">Calendário EaD</span>
         <p class="quick-text">Datas do semestre</p>
       </a>
 
       <a class="quick-card" href="contatos.html">
+        <svg class="quick-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
         <span class="quick-title">Contatos</span>
         <p class="quick-text">Fale com a coordenação</p>
       </a>
 
       <a class="quick-card" href="contatos.html#plantao">
+        <svg class="quick-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>
         <span class="quick-title">Plantão de atendimento</span>
         <p class="quick-text">Dúvidas ao vivo</p>
       </a>
@@ -450,12 +493,12 @@
       <div class="qr-item">
         <span class="qr-caption">Comunidade<br>DD &amp; MKT</span>
         <img class="qr-image" src="assets/qr-comunidade-dd-mkt.png" alt="QR code da comunidade de Design Digital e Marketing">
-        <a class="btn btn-primary btn-small" href="https://chat.whatsapp.com/DfFNMpWyrQJKrVk084zZX2" target="_blank" rel="noopener">Entrar no grupo</a>
+        <a class="btn btn-primary btn-small" href="https://chat.whatsapp.com/DfFNMpWyrQJKrVk084zZX2" target="_blank" rel="noopener">Entrar no grupo <span aria-hidden="true">↗</span></a>
       </div>
       <div class="qr-item">
         <span class="qr-caption">Comunidade<br>Jornalismo</span>
         <img class="qr-image" src="assets/qr-comunidade-jornalismo.png" alt="QR code da comunidade de Jornalismo">
-        <a class="btn btn-primary btn-small" href="https://chat.whatsapp.com/IkfiMdClW6oJhin9gt8lem" target="_blank" rel="noopener">Entrar no grupo</a>
+        <a class="btn btn-primary btn-small" href="https://chat.whatsapp.com/IkfiMdClW6oJhin9gt8lem" target="_blank" rel="noopener">Entrar no grupo <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -483,28 +526,10 @@
   </div>
 </footer>
 
+<script src="assets/calendario-2026-2.js"></script>
 <script>
   (function () {
-    var milestones = [
-      { date: '2026-08-10', label: 'Início do período letivo' },
-      { date: '2026-08-31', label: 'Último dia para trancamento/cancelamento com isenção financeira' },
-      { date: '2026-09-07', label: 'Independência do Brasil (feriado)' },
-      { date: '2026-10-05', label: 'Fim da janela da AP1 (Avaliação Parcial 1)' },
-      { date: '2026-10-06', label: 'Último dia para trancamento sem isenção financeira' },
-      { date: '2026-10-10', label: 'Feriado ponte' },
-      { date: '2026-10-12', label: 'Nossa Senhora Aparecida (feriado)' },
-      { date: '2026-10-13', label: 'Antecipação do Dia do Professor (feriado)' },
-      { date: '2026-11-02', label: 'Finados (feriado)' },
-      { date: '2026-11-16', label: 'Fim da janela da AP2 (Avaliação Parcial 2)' },
-      { date: '2026-11-20', label: 'Dia da Consciência Negra (feriado)' },
-      { date: '2026-12-02', label: 'Abre solicitação de Extraordinário Aproveitamento para 2027/1' },
-      { date: '2026-12-09', label: 'Fim da Avaliação Semestral (AS)' },
-      { date: '2026-12-19', label: 'Fim da Avaliação Final (AF) · último dia letivo' },
-      { date: '2026-12-25', label: 'Natal (feriado)' }
-    ];
-
-    var todayStr = new Date().toISOString().slice(0, 10);
-    var next = milestones.find(function (m) { return m.date >= todayStr; });
+    var next = calendarioMarcos().find(function (m) { return m.date >= calendarioHoje(); });
     var el = document.getElementById('proximo-prazo-text');
 
     if (!next) {
