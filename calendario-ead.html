@@ -222,6 +222,36 @@
     line-height: 1.45;
   }
 
+  .row.is-past .row-date,
+  .row.is-past .row-text {
+    opacity: .45;
+  }
+
+  .row.is-now,
+  .row.is-next {
+    background: #f6f7f6;
+    box-shadow: -12px 0 0 #f6f7f6, 12px 0 0 #f6f7f6;
+  }
+
+  .row-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    vertical-align: 2px;
+    background: var(--green-600);
+    color: var(--gold-100);
+  }
+
+  .row.is-now .row-badge {
+    background: var(--gold-300);
+    color: var(--green-900);
+  }
+
   .holidays-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -350,6 +380,11 @@
     line-height: 1.5;
     color: var(--text-muted);
   }
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--gold-300);
+    outline-offset: 3px;
+  }
 </style>
 </head>
 <body>
@@ -383,11 +418,7 @@
       <span class="eyebrow eyebrow--muted">Etapa 1</span>
       <h2 class="stage-title">Abertura e início das aulas</h2>
     </div>
-    <div class="rows">
-      <div class="row"><span class="row-date">05/08</span><span class="row-text">Abertura das salas e ambientação no AVA (5 dias antes do início do período letivo)</span></div>
-      <div class="row"><span class="row-date">10/08</span><span class="row-text">Início do período letivo · início das aulas das disciplinas EaD</span></div>
-      <div class="row"><span class="row-date">19/12</span><span class="row-text">Último dia letivo de 2026/2</span></div>
-    </div>
+    <div class="rows" data-stage="1"></div>
   </section>
 
   <section class="stage">
@@ -400,12 +431,7 @@
         <p class="callout-text">Disciplinas práticas e de <strong>PI (Projetos Integradores)</strong> podem ter datas diferentes das janelas abaixo. Confira <strong>sempre no ambiente AULA</strong> os prazos finais e de entrega de cada atividade.</p>
       </div>
     </div>
-    <div class="rows">
-      <div class="row"><span class="row-date">24/08 a 05/10</span><span class="row-text">AP1 · Avaliação Parcial 1</span></div>
-      <div class="row"><span class="row-date">05/10 a 16/11</span><span class="row-text">AP2 · Avaliação Parcial 2</span></div>
-      <div class="row"><span class="row-date">26/11 a 09/12</span><span class="row-text">AS · Avaliação Semestral (objetiva)</span></div>
-      <div class="row"><span class="row-date">10/12 a 19/12</span><span class="row-text">AF · Avaliação Final (objetiva)</span></div>
-    </div>
+    <div class="rows" data-stage="2"></div>
   </section>
 
   <section class="stage">
@@ -413,14 +439,7 @@
       <span class="eyebrow eyebrow--muted">Etapa 3</span>
       <h2 class="stage-title">Matrícula, trancamento e prazos financeiros</h2>
     </div>
-    <div class="rows">
-      <div class="row"><span class="row-date">31/07</span><span class="row-text">Último dia do mês para trancamento ou cancelamento total de matrícula com isenção das parcelas subsequentes de 2026/2</span></div>
-      <div class="row"><span class="row-date">06/08</span><span class="row-text">Último dia para solicitar Extraordinário Aproveitamento de Estudos de 2026/2, com documentação comprobatória</span></div>
-      <div class="row"><span class="row-date">21/08</span><span class="row-text">Último dia para solicitar aproveitamento de disciplinas cursadas em outra IES (ingressantes 2026/2)</span></div>
-      <div class="row"><span class="row-date">31/08</span><span class="row-text">Último dia do semestre para cancelamento total de matrícula, trancamento e cancelamento de disciplinas <strong>com isenção financeira</strong></span></div>
-      <div class="row"><span class="row-date">06/10</span><span class="row-text">Último dia do semestre para trancamento de matrícula e cancelamento de disciplinas regulares — efeito apenas acadêmico, sem isenção financeira</span></div>
-      <div class="row"><span class="row-date">02/12</span><span class="row-text">Abre o período de solicitação de Extraordinário Aproveitamento de Estudos para 2027/1</span></div>
-    </div>
+    <div class="rows" data-stage="3"></div>
   </section>
 
   <section class="stage">
@@ -429,25 +448,13 @@
       <h2 class="stage-title">Feriados e recessos</h2>
       <p class="stage-note">O AVA segue disponível nos feriados; as datas-limite das atividades não mudam por causa deles.</p>
     </div>
-    <div class="holidays-grid">
-      <div class="rows">
-        <div class="row"><span class="row-date">07/09</span><span class="row-text">Independência do Brasil</span></div>
-        <div class="row"><span class="row-date">10/10</span><span class="row-text">Feriado ponte</span></div>
-        <div class="row"><span class="row-date">12/10</span><span class="row-text">Nossa Senhora Aparecida</span></div>
-        <div class="row"><span class="row-date">13/10</span><span class="row-text">Antecipação do Dia do Professor</span></div>
-      </div>
-      <div class="rows">
-        <div class="row"><span class="row-date">02/11</span><span class="row-text">Finados</span></div>
-        <div class="row"><span class="row-date">20/11</span><span class="row-text">Dia da Consciência Negra</span></div>
-        <div class="row"><span class="row-date">25/12</span><span class="row-text">Natal</span></div>
-      </div>
-    </div>
+    <div class="holidays-grid" data-stage="4"></div>
   </section>
 
   <section class="cta-banner">
     <div class="cta-copy">
       <span class="eyebrow eyebrow--muted">Dúvida sobre uma data</span>
-      <p class="cta-text">Fale com a coordenação da Indústria Criativa por e-mail, WhatsApp ou no plantão de atendimento das quintas-feiras.</p>
+      <p class="cta-text">Veja se a resposta já está na <a href="espaco-academico/index.html">Central de Dúvidas</a> ou fale com a coordenação da Indústria Criativa por e-mail, WhatsApp ou no plantão de atendimento das quintas-feiras.</p>
     </div>
     <a class="btn btn-primary" href="contatos.html">Ver contatos</a>
   </section>
@@ -476,6 +483,51 @@
     <a class="footer__legal-link" href="#">Política de privacidade</a>
   </div>
 </footer>
+
+<script src="assets/calendario-2026-2.js"></script>
+<script>
+  (function () {
+    var hoje = calendarioHoje();
+
+    function dm(iso) {
+      return iso.slice(8, 10) + '/' + iso.slice(5, 7);
+    }
+
+    // Próxima data: o primeiro evento que ainda não começou.
+    var proxima = CALENDARIO
+      .filter(function (e) { return e.start > hoje; })
+      .sort(function (a, b) { return a.start < b.start ? -1 : 1; })[0];
+
+    function rowHtml(e) {
+      var fim = e.end || e.start;
+      var cls = 'row';
+      var badge = '';
+      if (fim < hoje) {
+        cls += ' is-past';
+      } else if (e.start <= hoje) {
+        cls += ' is-now';
+        badge = '<span class="row-badge">Agora</span>';
+      } else if (e === proxima) {
+        cls += ' is-next';
+        badge = '<span class="row-badge">Próxima</span>';
+      }
+      var data = e.end ? dm(e.start) + ' a ' + dm(e.end) : dm(e.start);
+      return '<div class="' + cls + '"><span class="row-date">' + data + '</span><span class="row-text">' + e.text + badge + '</span></div>';
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-stage]'), function (el) {
+      var stage = Number(el.dataset.stage);
+      var itens = CALENDARIO.filter(function (e) { return e.stage === stage; });
+      if (el.classList.contains('holidays-grid')) {
+        var metade = Math.ceil(itens.length / 2);
+        el.innerHTML = '<div class="rows">' + itens.slice(0, metade).map(rowHtml).join('') + '</div>' +
+                       '<div class="rows">' + itens.slice(metade).map(rowHtml).join('') + '</div>';
+      } else {
+        el.innerHTML = itens.map(rowHtml).join('');
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
