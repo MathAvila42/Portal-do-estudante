@@ -838,6 +838,41 @@ a { text-decoration: none; color: inherit; }
 
 .btn--primary:hover { background: #0d3634; }
 
+/* ---------- FEEDBACK DA RESPOSTA ---------- */
+
+.faq-feedback {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #e3e8e7;
+  font-size: 13.5px;
+  color: #4a5f5d;
+}
+
+.faq-feedback:focus { outline: none; }
+
+.faq-feedback__label { font-weight: 600; color: #1a2f2e; }
+
+.faq-feedback__btn {
+  padding: 6px 16px;
+  border: 1px solid #045a52;
+  border-radius: 999px;
+  background: none;
+  color: #045a52;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq-feedback__btn:hover { background: #045a52; color: #f5ce99; }
+
+.faq-feedback__btn:focus-visible { outline: 2px solid #cca269; outline-offset: 2px; }
+
+.faq-feedback__thanks a { color: #045a52; text-decoration: underline; }
+
 /* ---------- FOOTER ---------- */
 
 .footer { background: #0d3634; padding: 48px 24px 36px; text-align: center; }

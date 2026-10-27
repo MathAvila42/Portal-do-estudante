@@ -112,6 +112,34 @@ const onboardingNextBtn = document.getElementById('onboarding-next');
 
 let activeCategory = 'vida-academica';
 let openItemIds = new Set();
+
+// "Essa resposta ajudou?": o voto fica só neste navegador, nada é enviado.
+const FEEDBACK_KEY = 'central-duvidas-feedback';
+let feedbackVotes = {};
+try {
+  feedbackVotes = JSON.parse(localStorage.getItem(FEEDBACK_KEY) || '{}') || {};
+} catch (e) {}
+
+function saveFeedback() {
+  try {
+    localStorage.setItem(FEEDBACK_KEY, JSON.stringify(feedbackVotes));
+  } catch (e) {}
+}
+
+function renderFeedback(item) {
+  const vote = feedbackVotes[item.id];
+  if (vote === 'sim') {
+    return '<div class="faq-feedback" role="status" tabindex="-1"><span class="faq-feedback__thanks">Obrigado pelo retorno!</span></div>';
+  }
+  if (vote === 'nao') {
+    return `<div class="faq-feedback" role="status" tabindex="-1"><span class="faq-feedback__thanks">Que pena. Fale com a Central de Relacionamento EaD: <a href="https://wa.me/5551992741192" target="_blank" rel="noopener">(51) 99274-1192</a> · <a href="mailto:relac.canoas@ulbra.br">relac.canoas@ulbra.br</a></span></div>`;
+  }
+  return `<div class="faq-feedback" role="group" aria-label="Avaliar resposta">
+      <span class="faq-feedback__label">Essa resposta ajudou?</span>
+      <button class="faq-feedback__btn" type="button" data-feedback="sim" data-id="${item.id}">Sim</button>
+      <button class="faq-feedback__btn" type="button" data-feedback="nao" data-id="${item.id}">Não</button>
+    </div>`;
+}
 let searchQuery = '';
 let highlightedItem = null;
 let onboardingOpen = false;
@@ -233,7 +261,7 @@ function renderFaqItem(item) {
         </div>
         <span class="faq-item__chevron">›</span>
       </button>
-      <div class="faq-item__answer" id="${item.domId}-answer"><p>${item.a}</p>${stepsHtml}${relatedHtml}${systemHtml}</div>
+      <div class="faq-item__answer" id="${item.domId}-answer"><p>${item.a}</p>${stepsHtml}${relatedHtml}${systemHtml}${renderFeedback(item)}</div>
     </div>
   `;
 }
@@ -261,6 +289,15 @@ function attachFaqItemListeners() {
         openItemIds.add(id);
       }
       renderFaqArea();
+    });
+  });
+  faqSectionsEl.querySelectorAll('.faq-feedback__btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      feedbackVotes[btn.dataset.id] = btn.dataset.feedback;
+      saveFeedback();
+      renderFaqArea();
+      const status = document.querySelector(`#${CSS.escape('faq-' + btn.dataset.id)} .faq-feedback`);
+      if (status) status.focus();
     });
   });
   faqSectionsEl.querySelectorAll('.faq-item__related-link').forEach((btn) => {
