@@ -115,11 +115,11 @@
 
   .headline {
     margin: 0;
-    max-width: 640px;
+    max-width: 800px;
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 500;
-    font-size: 52px;
-    line-height: 1.05;
+    font-size: 72px;
+    line-height: 1.02;
     letter-spacing: -0.02em;
     color: var(--gold-100);
     text-wrap: pretty;
@@ -168,8 +168,21 @@
 
   .quick-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
     gap: 12px;
+  }
+
+  @media (max-width: 900px) {
+    .quick-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 600px) {
+    .quick-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .quick-card {
@@ -247,13 +260,14 @@
     height: 88px;
     border-radius: 16px;
     background: var(--gold-100);
-    color: var(--green-900);
+    color: #072120;
   }
 
   .next-date-num {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 40px;
-    font-weight: 600;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     line-height: 1;
   }
 
@@ -263,6 +277,10 @@
     font-weight: 700;
     letter-spacing: .14em;
     text-transform: uppercase;
+  }
+
+  .next-date .eyebrow {
+    color: var(--gold-100);
   }
 
   .next-date-copy {
@@ -275,15 +293,16 @@
 
   .next-date-weekday {
     font-size: 15px;
-    font-weight: 600;
-    color: #c6ddd0;
+    font-weight: 500;
+    color: var(--gold-100);
   }
 
   .next-date-text {
     margin: 0;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 26px;
-    font-weight: 500;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     line-height: 1.2;
     color: var(--gold-100);
     text-wrap: pretty;
@@ -292,7 +311,7 @@
   .next-date-link {
     flex: none;
     padding: 8px 16px;
-    border: 1px solid rgba(204, 162, 105, .55);
+    border: 1px solid rgba(245, 206, 153, .55);
     border-radius: 999px;
     font-size: 14px;
     font-weight: 500;
@@ -302,7 +321,7 @@
   }
 
   .next-date-link:hover {
-    border-color: var(--gold-300);
+    border-color: var(--gold-100);
     background: rgba(245, 206, 153, .08);
   }
 
@@ -412,7 +431,7 @@
 
 
     .headline {
-      font-size: 38px;
+      font-size: 48px;
     }
 
     .subhead {
