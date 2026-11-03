@@ -96,7 +96,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 
 
@@ -136,6 +137,7 @@
   .courses {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 8px;
     margin: 4px 0 0;
     padding: 0;
@@ -174,6 +176,7 @@
     display: grid;
     grid-template-columns: 24px 1fr;
     align-items: start;
+    align-content: start;
     gap: 4px 14px;
     background: var(--green-900);
     border-radius: 12px;
@@ -227,43 +230,89 @@
   .next-date-inner {
     max-width: 1080px;
     margin: 0 auto;
-    padding: 18px 32px;
+    padding: 28px 32px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px 32px;
+    gap: 20px 28px;
+  }
+
+  .next-date-day {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 88px;
+    border-radius: 16px;
+    background: var(--gold-100);
+    color: var(--green-900);
+  }
+
+  .next-date-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .next-date-month {
+    margin-top: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
   }
 
   .next-date-copy {
+    flex: 1 1 280px;
     display: flex;
     flex-direction: column;
     gap: 4px;
     min-width: 0;
   }
 
-  .next-date-text {
-    margin: 0;
-    font-size: 17px;
-    line-height: 1.4;
+  .next-date-weekday {
+    font-size: 15px;
+    font-weight: 600;
     color: #c6ddd0;
   }
 
-  .next-date-text strong {
-    font-weight: 600;
+  .next-date-text {
+    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
     color: var(--gold-100);
+    text-wrap: pretty;
   }
 
   .next-date-link {
     flex: none;
+    padding: 8px 16px;
+    border: 1px solid rgba(204, 162, 105, .55);
+    border-radius: 999px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--gold-100);
     text-decoration: none;
+    transition: background-color .2s ease, border-color .2s ease;
   }
 
   .next-date-link:hover {
-    color: #ffffff;
+    border-color: var(--gold-300);
+    background: rgba(245, 206, 153, .08);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
   }
 
   .btn {
@@ -285,81 +334,6 @@
   .btn-primary:hover {
     background: var(--green-800);
     color: var(--gold-100);
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    border-top: 2px solid var(--green-900);
-    padding-top: 18px;
-  }
-
-  .card-note {
-    margin: 0;
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--text);
-  }
-
-  .community-rules {
-    margin: 0;
-    padding: 14px 18px 14px 34px;
-    border-radius: 12px;
-    background: #f6f7f6;
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--green-900);
-  }
-
-  .community-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-  }
-
-  .community {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 20px;
-    border: 1px solid var(--line-hairline);
-    border-radius: 12px;
-  }
-
-  .community-name {
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--green-900);
-  }
-
-  .community .btn {
-    align-self: stretch;
-    text-align: center;
-  }
-
-  .community-qr {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 13px;
-    line-height: 1.4;
-    color: var(--text-muted);
-  }
-
-  .community-qr img {
-    flex: none;
-    width: 72px;
-    height: 72px;
-    border: 1px solid var(--line-hairline);
-    border-radius: 6px;
-    background: #fff;
-  }
-
-  @media (max-width: 600px) {
-    .community-qr {
-      display: none;
-    }
   }
 
   .footer {
@@ -444,6 +418,31 @@
     .subhead {
       font-size: 16px;
     }
+
+    .next-date-inner {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      padding: 24px 32px;
+      gap: 16px 18px;
+    }
+
+    .next-date-link {
+      grid-column: 1 / -1;
+      justify-self: start;
+    }
+
+    .next-date-day {
+      width: 72px;
+      height: 72px;
+    }
+
+    .next-date-num {
+      font-size: 32px;
+    }
+
+    .next-date-text {
+      font-size: 20px;
+    }
   }
 </style>
 </head>
@@ -451,9 +450,8 @@
 
 <nav class="topnav">
   <div class="topnav-inner">
-    <a class="topnav-brand" href="index.html"><img src="assets/logo-ulbra-branco.png" alt="Ulbra Online · Portal do Estudante"></a>
+    <a class="topnav-brand" href="index.html"><img src="assets/logo-horizontal-gold.png" alt="Ulbra · Portal do Estudante"></a>
     <div class="topnav-links">
-      <a class="active" href="index.html">Início</a>
       <a href="calendario-ead.html">Calendário</a>
       <a href="contatos.html">Contatos</a>
       <a href="onboarding-ead.html">Primeiros passos</a>
@@ -464,7 +462,7 @@
 
 <header class="header">
   <div class="header-inner">
-    <h1 class="headline">Portal do Estudante.</h1>
+    <h1 class="headline">Portal do Estudante</h1>
     <p class="subhead">Contatos, calendário, comunidades e atendimento da Indústria Criativa.</p>
     <ul class="courses" aria-label="Cursos da Indústria Criativa">
       <li>Design Digital EaD</li>
@@ -477,8 +475,13 @@
 
 <section class="next-date" id="proximo-prazo">
   <div class="next-date-inner">
+    <div class="next-date-day" id="proximo-prazo-dia" aria-hidden="true">
+      <span class="next-date-num" id="proximo-prazo-num">–</span>
+      <span class="next-date-month" id="proximo-prazo-mes"></span>
+    </div>
     <div class="next-date-copy">
       <span class="eyebrow">Próxima data importante</span>
+      <span class="next-date-weekday" id="proximo-prazo-semana"></span>
       <p class="next-date-text" id="proximo-prazo-text">Carregando…</p>
     </div>
     <a class="next-date-link" href="calendario-ead.html">Ver calendário completo →</a>
@@ -521,34 +524,12 @@
         <p class="quick-text">Fale com a coordenação</p>
       </a>
 
-      <a class="quick-card" href="contatos.html#plantao">
-        <svg class="quick-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>
-        <span class="quick-title">Plantão de atendimento</span>
-        <p class="quick-text">Dúvidas ao vivo</p>
+      <a class="quick-card" href="contatos.html#pessoalmente">
+        <svg class="quick-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15.5l2 2 4-4"/></svg>
+        <span class="quick-title">Agendamento de atendimento</span>
+        <p class="quick-text">Tire suas dúvidas com a Coordenação do curso</p>
       </a>
 
-    </div>
-  </section>
-
-  <section class="card" id="comunidades">
-    <span class="eyebrow eyebrow--muted">Comunidades no WhatsApp</span>
-    <p class="card-note">Entre no grupo da sua área para receber os avisos da turma.</p>
-    <ul class="community-rules">
-      <li>Os grupos são para <strong>avisos da coordenação</strong> e da turma.</li>
-      <li><strong>Não são canal de suporte:</strong> para dúvidas, use a <a href="espaco-academico/index.html">Central de Dúvidas</a> ou os <a href="contatos.html">Contatos</a>.</li>
-      <li>Respeito sempre; sem divulgação, correntes ou spam.</li>
-    </ul>
-    <div class="community-grid">
-      <div class="community">
-        <span class="community-name">Design Digital e Marketing</span>
-        <a class="btn btn-primary" href="https://chat.whatsapp.com/DfFNMpWyrQJKrVk084zZX2" target="_blank" rel="noopener">Entrar no grupo <span aria-hidden="true">↗</span></a>
-        <div class="community-qr"><img src="assets/qr-comunidade-dd-mkt.png" alt="QR code do grupo de Design Digital e Marketing"><span>No computador? Escaneie com a câmera do celular.</span></div>
-      </div>
-      <div class="community">
-        <span class="community-name">Jornalismo</span>
-        <a class="btn btn-primary" href="https://chat.whatsapp.com/IkfiMdClW6oJhin9gt8lem" target="_blank" rel="noopener">Entrar no grupo <span aria-hidden="true">↗</span></a>
-        <div class="community-qr"><img src="assets/qr-comunidade-jornalismo.png" alt="QR code do grupo de Jornalismo"><span>No computador? Escaneie com a câmera do celular.</span></div>
-      </div>
     </div>
   </section>
 
@@ -582,16 +563,20 @@
     var el = document.getElementById('proximo-prazo-text');
 
     if (!next) {
+      document.getElementById('proximo-prazo-dia').hidden = true;
       el.textContent = 'O semestre 2026/2 já foi concluído.';
       return;
     }
 
-    var d = new Date(next.date + 'T00:00:00');
-    el.innerHTML = '';
-    var strong = document.createElement('strong');
-    strong.textContent = calendarioDiaSemana(next.date, 'long') + ', ' + d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' });
-    el.appendChild(strong);
-    el.appendChild(document.createTextNode(' · ' + next.label));
+    var d = new Date(next.date + 'T12:00:00');
+    var mes = d.toLocaleDateString('pt-BR', { month: 'long' });
+    var semana = calendarioDiaSemana(next.date, 'long');
+    document.getElementById('proximo-prazo-num').textContent = next.date.slice(8, 10);
+    document.getElementById('proximo-prazo-mes').textContent = mes.slice(0, 3);
+    // Leitores de tela leem a data por extenso no lugar do bloco visual.
+    document.getElementById('proximo-prazo-semana').innerHTML =
+      '<span class="sr-only">' + next.date.slice(8, 10) + ' de ' + mes + ', </span>' + semana.charAt(0).toUpperCase() + semana.slice(1);
+    el.textContent = next.label;
   })();
 </script>
 
