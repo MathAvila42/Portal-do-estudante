@@ -173,6 +173,12 @@
     gap: 12px;
   }
 
+  @media (max-width: 1000px) {
+    .next-date-text {
+      font-size: 19px;
+    }
+  }
+
   @media (max-width: 900px) {
     .quick-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -242,35 +248,53 @@
     border-top: 1px solid rgba(245, 206, 153, .15);
   }
 
+  /* Uma linha em colunas: o que é │ quando │ o quê │ botão. */
   .next-date-inner {
     max-width: 1080px;
     margin: 0 auto;
-    padding: 28px 32px;
-    display: flex;
+    padding: 24px 32px;
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
-    gap: 20px 32px;
   }
 
-  .next-date-main {
+  .next-date-inner > * {
+    margin: 0;
+    padding: 0 28px;
+  }
+
+  .next-date-inner > :first-child {
+    padding-left: 0;
+  }
+
+  .next-date-when,
+  .next-date-what {
+    border-left: 1px solid rgba(227, 233, 231, .2);
+  }
+
+  .next-date-what {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    min-width: 0;
+    align-items: flex-start;
+    gap: 10px;
+    padding-right: 0 !important;
   }
 
   .next-date-head {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 
   .next-date-title {
+    max-width: 170px;
     margin: 0;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 700;
-    line-height: 1.2;
+    letter-spacing: .08em;
+    line-height: 1.25;
+    text-transform: uppercase;
     color: var(--gold-100);
   }
 
@@ -284,11 +308,9 @@
   }
 
   .next-date-when {
-    margin: 4px 0 0;
     display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 4px 12px;
+    flex-direction: column;
+    gap: 2px;
   }
 
   .next-date-day {
@@ -296,20 +318,21 @@
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
+    white-space: nowrap;
     color: var(--gold-100);
   }
 
   .next-date-weekday {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--next-gray);
   }
 
   .next-date-text {
     margin: 0;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500;
-    line-height: 1.4;
+    line-height: 1.35;
     color: var(--next-gray);
     text-wrap: pretty;
   }
@@ -436,13 +459,41 @@
     }
 
     .next-date-inner {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 24px 32px;
+      grid-template-columns: 1fr;
+      justify-items: start;
+      gap: 14px;
+    }
+
+    .next-date-inner > *,
+    .next-date-inner > :first-child {
+      padding: 0;
+    }
+
+    .next-date-when,
+    .next-date-what {
+      border-left: none;
+    }
+
+    .next-date-title {
+      max-width: none;
+    }
+
+    .next-date-countdown {
+      white-space: nowrap;
+    }
+
+    .next-date-head {
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
     }
 
     .next-date-day {
       font-size: 26px;
+    }
+
+    .next-date-text {
+      font-size: 19px;
     }
 
   }
@@ -477,18 +528,18 @@
 
 <section class="next-date" id="proximo-prazo" aria-labelledby="proximo-prazo-rotulo">
   <div class="next-date-inner">
-    <div class="next-date-main">
-      <div class="next-date-head">
-        <h2 class="next-date-title" id="proximo-prazo-rotulo">Próxima data importante</h2>
-        <span class="next-date-countdown" id="proximo-prazo-faltam" hidden></span>
-      </div>
-      <p class="next-date-when" id="proximo-prazo-quando">
-        <span class="next-date-day" id="proximo-prazo-data">–</span>
-        <span class="next-date-weekday" id="proximo-prazo-semana"></span>
-      </p>
-      <p class="next-date-text" id="proximo-prazo-text">Carregando…</p>
+    <div class="next-date-head">
+      <h2 class="next-date-title" id="proximo-prazo-rotulo">Próxima data importante</h2>
+      <span class="next-date-countdown" id="proximo-prazo-faltam" hidden></span>
     </div>
-    <a class="next-date-link" href="calendario-ead.html">Ver calendário completo →</a>
+    <p class="next-date-when" id="proximo-prazo-quando">
+      <span class="next-date-day" id="proximo-prazo-data">–</span>
+      <span class="next-date-weekday" id="proximo-prazo-semana"></span>
+    </p>
+    <div class="next-date-what">
+      <p class="next-date-text" id="proximo-prazo-text">Carregando…</p>
+      <a class="next-date-link" href="calendario-ead.html">Ver calendário completo →</a>
+    </div>
   </div>
 </section>
 
