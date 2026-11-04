@@ -234,11 +234,12 @@
     gap: 32px 40px;
   }
 
-  /* Faixa da próxima data: só Inter e duas cores (dourado e verde-escuro). */
+  /* Faixa da próxima data: só Inter; dourado + cinza claro sobre o verde-escuro.
+     Ordem de leitura: o que é (título) → quando (data) → o quê (evento). */
   .next-date {
+    --next-gray: #e3e9e7;
     background: #072120;
     border-top: 1px solid rgba(245, 206, 153, .15);
-    color: var(--gold-100);
   }
 
   .next-date-inner {
@@ -247,67 +248,69 @@
     padding: 28px 32px;
     display: flex;
     align-items: center;
-    gap: 32px;
+    justify-content: space-between;
+    gap: 20px 32px;
   }
 
-  .next-date-when {
-    flex: none;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding-right: 32px;
-    border-right: 1px solid rgba(245, 206, 153, .25);
-  }
-
-  .next-date-num {
-    font-size: 64px;
-    font-weight: 300;
-    line-height: .9;
-    letter-spacing: -0.04em;
-  }
-
-  .next-date-meta {
+  .next-date-main {
     display: flex;
     flex-direction: column;
-    gap: 2px;
-  }
-
-  .next-date-month {
-    font-size: 18px;
-    font-weight: 600;
-  }
-
-  .next-date-weekday {
-    font-size: 14px;
-    opacity: .75;
-  }
-
-  .next-date-copy {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     min-width: 0;
   }
 
-  .next-date-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    opacity: .75;
+  .next-date-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
   }
 
-  .next-date-countdown:not(:empty)::before {
-    content: '·';
-    margin: 0 8px;
+  .next-date-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--gold-100);
+  }
+
+  .next-date-countdown {
+    padding: 3px 10px;
+    border: 1px solid rgba(245, 206, 153, .55);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold-100);
+  }
+
+  .next-date-when {
+    margin: 4px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 12px;
+  }
+
+  .next-date-day {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--gold-100);
+  }
+
+  .next-date-weekday {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--next-gray);
   }
 
   .next-date-text {
     margin: 0;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1.4;
+    color: var(--next-gray);
     text-wrap: pretty;
   }
 
@@ -435,21 +438,11 @@
     .next-date-inner {
       flex-direction: column;
       align-items: flex-start;
-      gap: 16px;
       padding: 24px 32px;
     }
 
-    .next-date-when {
-      padding-right: 0;
-      border-right: none;
-    }
-
-    .next-date-num {
-      font-size: 52px;
-    }
-
-    .next-date-text {
-      font-size: 19px;
+    .next-date-day {
+      font-size: 26px;
     }
 
   }
@@ -484,15 +477,15 @@
 
 <section class="next-date" id="proximo-prazo" aria-labelledby="proximo-prazo-rotulo">
   <div class="next-date-inner">
-    <div class="next-date-when" id="proximo-prazo-quando">
-      <span class="next-date-num" id="proximo-prazo-num">–</span>
-      <span class="next-date-meta">
-        <span class="next-date-month" id="proximo-prazo-mes"></span>
+    <div class="next-date-main">
+      <div class="next-date-head">
+        <h2 class="next-date-title" id="proximo-prazo-rotulo">Próxima data importante</h2>
+        <span class="next-date-countdown" id="proximo-prazo-faltam" hidden></span>
+      </div>
+      <p class="next-date-when" id="proximo-prazo-quando">
+        <span class="next-date-day" id="proximo-prazo-data">–</span>
         <span class="next-date-weekday" id="proximo-prazo-semana"></span>
-      </span>
-    </div>
-    <div class="next-date-copy">
-      <span class="next-date-label" id="proximo-prazo-rotulo">Próxima data importante<span class="next-date-countdown" id="proximo-prazo-faltam"></span></span>
+      </p>
       <p class="next-date-text" id="proximo-prazo-text">Carregando…</p>
     </div>
     <a class="next-date-link" href="calendario-ead.html">Ver calendário completo →</a>
@@ -579,13 +572,18 @@
       return;
     }
 
+    function inicialMaiuscula(t) {
+      return t.charAt(0).toUpperCase() + t.slice(1);
+    }
+
     var d = new Date(next.date + 'T12:00:00');
-    var semana = calendarioDiaSemana(next.date, 'long');
     var dias = Math.round((d - new Date(calendarioHoje() + 'T12:00:00')) / 86400000);
-    document.getElementById('proximo-prazo-num').textContent = next.date.slice(8, 10);
-    document.getElementById('proximo-prazo-mes').textContent = d.toLocaleDateString('pt-BR', { month: 'long' });
-    document.getElementById('proximo-prazo-semana').textContent = semana.charAt(0).toUpperCase() + semana.slice(1);
-    document.getElementById('proximo-prazo-faltam').textContent = dias === 0 ? 'hoje' : dias === 1 ? 'amanhã' : 'em ' + dias + ' dias';
+    var mes = inicialMaiuscula(d.toLocaleDateString('pt-BR', { month: 'long' }));
+    var faltam = document.getElementById('proximo-prazo-faltam');
+    faltam.textContent = dias === 0 ? 'Hoje' : dias === 1 ? 'Amanhã' : 'Em ' + dias + ' dias';
+    faltam.hidden = false;
+    document.getElementById('proximo-prazo-data').textContent = Number(next.date.slice(8, 10)) + ' de ' + mes;
+    document.getElementById('proximo-prazo-semana').textContent = inicialMaiuscula(calendarioDiaSemana(next.date, 'long'));
     el.textContent = next.label;
   })();
 </script>

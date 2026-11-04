@@ -13,8 +13,8 @@ var CALENDARIO = [
   { stage: 1, start: '2026-08-10', text: 'Início do período letivo · início das aulas das disciplinas EaD', short: 'Início do período letivo' },
   { stage: 1, start: '2026-12-19', text: 'Último dia letivo de 2026/2', short: 'Último dia letivo de 2026/2' },
 
-  { stage: 2, start: '2026-08-24', end: '2026-10-05', text: 'AP1 · Avaliação Parcial 1', startShort: 'Abre a janela da AP1 (Avaliação Parcial 1)', endShort: 'Fim da janela da AP1 (Avaliação Parcial 1)' },
-  { stage: 2, start: '2026-10-05', end: '2026-11-16', text: 'AP2 · Avaliação Parcial 2', startShort: 'Abre a janela da AP2 (Avaliação Parcial 2)', endShort: 'Fim da janela da AP2 (Avaliação Parcial 2)' },
+  { stage: 2, start: '2026-08-24', end: '2026-10-05', text: 'AP1 · Avaliação Parcial 1', startShort: 'Abre o período da AP1 (Avaliação Parcial 1)', endShort: 'Fim do período da AP1 (Avaliação Parcial 1)' },
+  { stage: 2, start: '2026-10-05', end: '2026-11-16', text: 'AP2 · Avaliação Parcial 2', startShort: 'Abre o período da AP2 (Avaliação Parcial 2)', endShort: 'Fim do período da AP2 (Avaliação Parcial 2)' },
   { stage: 2, start: '2026-11-26', end: '2026-12-09', text: 'AS · Avaliação Semestral (objetiva)', startShort: 'Começa a Avaliação Semestral (AS)', endShort: 'Fim da Avaliação Semestral (AS)' },
   { stage: 2, start: '2026-12-10', end: '2026-12-19', text: 'AF · Avaliação Final (objetiva)', startShort: 'Começa a Avaliação Final (AF)', endShort: 'Fim da Avaliação Final (AF)' },
 
