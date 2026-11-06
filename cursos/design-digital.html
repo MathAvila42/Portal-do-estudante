@@ -56,28 +56,97 @@
 
 <main>
 
-  <div class="lp-grid">
+  <div class="lp-grid lp-grid--2">
     <section class="lp-section" id="sobre">
       <span class="eyebrow eyebrow--muted">O curso</span>
-      <h2 class="lp-title">Sobre o curso</h2>
-      <!-- A PREENCHER: descrição do curso, duração, título conferido (tecnólogo/bacharel), modalidade. -->
-      <p class="lp-pending">Conteúdo em preparação pela coordenação.</p>
+      <h2 class="lp-title">Design Digital</h2>
+      <p class="lp-text">O Curso Superior de Tecnologia em Design Digital é voltado para a formação de profissionais capazes de criar e desenvolver projetos de comunicação visual utilizando ferramentas e mídias digitais. O curso abrange uma ampla gama de disciplinas que integram design gráfico, design de interação, animação e produção multimídia, proporcionando aos estudantes as habilidades necessárias para atuar em diversos segmentos do mercado digital.</p>
     </section>
 
     <section class="lp-section" id="matriz">
       <span class="eyebrow eyebrow--muted">Estudos</span>
       <h2 class="lp-title">Matriz e disciplinas</h2>
-      <!-- A PREENCHER: disciplinas por semestre ou link para a matriz curricular oficial. -->
-      <p class="lp-pending">Conteúdo em preparação pela coordenação.</p>
-    </section>
-
-    <section class="lp-section" id="carreira">
-      <span class="eyebrow eyebrow--muted">Depois da sala de aula</span>
-      <h2 class="lp-title">Carreira e projetos</h2>
-      <!-- A PREENCHER: áreas de atuação, Projetos Integradores, portfólio, estágio. -->
-      <p class="lp-pending">Conteúdo em preparação pela coordenação.</p>
+      <ul class="matrix-facts">
+        <li><strong>27</strong> disciplinas</li>
+        <li><strong>4</strong> semestres</li>
+        <li><strong>1.620 h</strong> no total</li>
+      </ul>
+      <button class="btn btn-primary" type="button" id="abrir-matriz" aria-haspopup="dialog" aria-controls="matriz-dialog" hidden>Ver disciplinas por semestre</button>
+      <a class="matrix-pdf" href="https://www.ulbra.br/upload/215820386273fe3c2ab12e25de427fd4.pdf" target="_blank" rel="noopener">Matriz curricular oficial (PDF) <span aria-hidden="true">↗</span></a>
     </section>
   </div>
+
+  <dialog class="matrix-dialog" id="matriz-dialog" aria-labelledby="matriz-titulo">
+    <div class="matrix-head">
+      <div>
+        <span class="eyebrow eyebrow--muted">Superior de Tecnologia em Design Digital</span>
+        <h2 class="lp-title" id="matriz-titulo">Matriz curricular</h2>
+      </div>
+      <button class="matrix-close" type="button" id="fechar-matriz" aria-label="Fechar">×</button>
+    </div>
+    <div class="matrix-body">
+        <section class="matrix-sem">
+          <h3 class="matrix-sem-title">1º semestre <span>420 h</span></h3>
+          <table class="matrix-table">
+            <thead><tr><th scope="col">Disciplina</th><th scope="col">CH</th></tr></thead>
+            <tbody>
+              <tr><td>Comunicação e Linguagem</td><td>60 h</td></tr>
+              <tr><td>Desenho Universal nas Interfaces</td><td>60 h</td></tr>
+              <tr><td>Design da Informação na Cibercultura</td><td>60 h</td></tr>
+              <tr><td>Design Editorial</td><td>60 h</td></tr>
+              <tr><td>Eletiva CST Design Digital</td><td>60 h</td></tr>
+              <tr><td>Introdução ao Design e História da Arte</td><td>60 h</td></tr>
+              <tr><td>PI Interculturalidade e Relações Étnico-Raciais</td><td>60 h</td></tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="matrix-sem">
+          <h3 class="matrix-sem-title">2º semestre <span>420 h</span></h3>
+          <table class="matrix-table">
+            <thead><tr><th scope="col">Disciplina</th><th scope="col">CH</th></tr></thead>
+            <tbody>
+              <tr><td>Animação Digital e Motion Design</td><td>60 h</td></tr>
+              <tr><td>Design Instrucional</td><td>60 h</td></tr>
+              <tr><td>Fundamentos da IA para o Ambiente Profissional</td><td>60 h</td></tr>
+              <tr><td>Marketing Digital</td><td>60 h</td></tr>
+              <tr><td>Metodologia e Inovação Científico-Tecnológica</td><td>60 h</td></tr>
+              <tr><td>PI Sustentabilidade e Direitos Humanos</td><td>60 h</td></tr>
+              <tr><td>Realidade Virtual e Aumentada</td><td>60 h</td></tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="matrix-sem">
+          <h3 class="matrix-sem-title">3º semestre <span>420 h</span></h3>
+          <table class="matrix-table">
+            <thead><tr><th scope="col">Disciplina</th><th scope="col">CH</th></tr></thead>
+            <tbody>
+              <tr><td>Desenho e Ilustração</td><td>60 h</td></tr>
+              <tr><td>Desenvolvimento Front-End</td><td>60 h</td></tr>
+              <tr><td>Design de Identidade Visual</td><td>60 h</td></tr>
+              <tr><td>Design de Interfaces Interativas</td><td>60 h</td></tr>
+              <tr><td>PI Inovação e Empreendedorismo</td><td>60 h</td></tr>
+              <tr><td>Prototipagem Digital</td><td>60 h</td></tr>
+              <tr><td>UX/UI Design</td><td>60 h</td></tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="matrix-sem">
+          <h3 class="matrix-sem-title">4º semestre <span>360 h</span></h3>
+          <table class="matrix-table">
+            <thead><tr><th scope="col">Disciplina</th><th scope="col">CH</th></tr></thead>
+            <tbody>
+              <tr><td>Cultura Digital</td><td>60 h</td></tr>
+              <tr><td>Design, Mercado e Território Digital</td><td>60 h</td></tr>
+              <tr><td>Ecodesign e Design para Inovação Social</td><td>60 h</td></tr>
+              <tr><td>Gestão Estratégica, Branding e Gamificação</td><td>60 h</td></tr>
+              <tr><td>Leitura e Percepção da Imagem</td><td>60 h</td></tr>
+              <tr><td>Produção de Conteúdo</td><td>60 h</td></tr>
+            </tbody>
+          </table>
+        </section>
+    </div>
+    <p class="matrix-foot">Carga horária total: <strong>1.620 h</strong> · Fonte: <a href="https://www.ulbra.br/upload/215820386273fe3c2ab12e25de427fd4.pdf" target="_blank" rel="noopener">matriz curricular oficial (Ulbra, dez/2024)</a></p>
+  </dialog>
 
   <section class="lp-section" id="comunidade">
     <div class="community">
@@ -184,6 +253,20 @@
     document.getElementById('proximo-prazo-data').textContent = Number(next.date.slice(8, 10)) + ' de ' + mes;
     document.getElementById('proximo-prazo-semana').textContent = inicialMaiuscula(calendarioDiaSemana(next.date, 'long'));
     el.textContent = next.label;
+  })();
+</script>
+
+<script>
+  // Pop-up da matriz: sem JS (ou sem <dialog>), fica só o link para o PDF.
+  (function () {
+    var dialog = document.getElementById('matriz-dialog');
+    var abrir = document.getElementById('abrir-matriz');
+    if (!dialog || typeof dialog.showModal !== 'function') return;
+    abrir.hidden = false;
+    abrir.addEventListener('click', function () { dialog.showModal(); });
+    document.getElementById('fechar-matriz').addEventListener('click', function () { dialog.close(); });
+    // Clique fora da caixa fecha.
+    dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
   })();
 </script>
 
