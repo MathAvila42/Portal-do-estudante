@@ -506,6 +506,45 @@
     }
 
   }
+
+  .manual-cta {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 24px;
+    padding: 22px 26px;
+    border-radius: 12px;
+    background: #f6f7f6;
+    text-decoration: none;
+    transition: background-color .2s ease;
+  }
+
+  .manual-cta:hover {
+    background: #eef1f0;
+  }
+
+  .manual-cta-title {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--green-900);
+  }
+
+  .manual-cta-text {
+    display: block;
+    margin-top: 2px;
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  .manual-cta-go {
+    flex: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--green-600);
+  }
 </style>
 </head>
 <body>
@@ -595,6 +634,13 @@
       </a>
 
     </div>
+    <a class="manual-cta" href="manual-do-aluno.html">
+      <span>
+        <span class="manual-cta-title">Manual do Aluno EaD</span>
+        <span class="manual-cta-text">Avaliação, prazos, protocolos, atendimento, normativas e Enade: as regras da Graduação EaD em um só lugar.</span>
+      </span>
+      <span class="manual-cta-go">Abrir o manual →</span>
+    </a>
   </section>
 
 </main>
