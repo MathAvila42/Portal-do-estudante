@@ -27,33 +27,96 @@
 <header class="header">
   <div class="header-inner">
     <h1 class="headline">Manual do Aluno EaD</h1>
-    <p class="subhead">1ª edição · Graduação Ulbra EaD</p>
+    <p class="subhead">1ª edição · Graduação Ulbra EaD · O essencial de cada capítulo em uma linha. Toque para ver tudo.</p>
   </div>
 </header>
 
-<main>
-  <div class="manual-layout">
-    <nav class="manual-toc" aria-label="Capítulos do manual">
-      <span class="eyebrow eyebrow--muted">Capítulos</span>
-      <ol>
-        <li><a href="#sobre-a-ulbra">Sobre a Ulbra</a></li>
-        <li><a href="#educacao-a-distancia">Sobre a educação a distância</a></li>
-        <li><a href="#metodologia">Metodologia de ensino e aprendizagem</a></li>
-        <li><a href="#avaliacao">Avaliação da aprendizagem</a></li>
-        <li><a href="#atividades-complementares">Atividades complementares</a></li>
-        <li><a href="#estrutura-ead">Estrutura da Educação a Distância</a></li>
-        <li><a href="#setores-de-atendimento">Setores de atendimento da EaD</a></li>
-        <li><a href="#encaminhamentos">Encaminhamentos acadêmicos</a></li>
-        <li><a href="#normativas">Normativas acadêmicas</a></li>
-        <li><a href="#enade">Enade</a></li>
-        <li><a href="#avaliacao-institucional">Avaliação institucional</a></li>
-      </ol>
+<main class="manual">
+  <section class="mgrid-wrap" aria-label="Capítulos do manual">
+    <div class="mgrid-head">
+      <span class="eyebrow eyebrow--muted">11 capítulos</span>
+      <div class="mgrid-actions">
+        <input class="msearch" id="manual-busca" type="search" placeholder="Buscar no manual (ex.: trancamento, Enade, AF)" aria-label="Buscar no manual" hidden>
+        <button class="mtoggle-all" id="manual-abrir-todos" type="button" hidden>Abrir todos</button>
+      </div>
+    </div>
+    <nav class="mgrid">
+      <a class="mgrid-card" href="#sobre-a-ulbra" data-open="sobre-a-ulbra">
+        <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg>
+        <span class="mgrid-num">01</span>
+        <span class="mgrid-title">Sobre a Ulbra</span>
+      </a>
+      <a class="mgrid-card" href="#educacao-a-distancia" data-open="educacao-a-distancia">
+        <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span class="mgrid-num">02</span>
+        <span class="mgrid-title">Sobre a educação a distância</span>
+      </a>
+      <a class="mgrid-card" href="#metodologia" data-open="metodologia">
+        <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+        <span class="mgrid-num">03</span>
+        <span class="mgrid-title">Metodologia de ensino e aprendizagem</span>
+      </a>
+      <a class="mgrid-card" href="#avaliacao" data-open="avaliacao">
+        <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg>
+        <span class="mgrid-num">04</span>
+        <span class="mgrid-title">Avaliação da aprendizagem</span>
+      </a>
+      <a class="mgrid-card" href="#atividades-complementares" data-open="atividades-complementares">
+        <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        <span class="mgrid-num">05</span>
+        <span class="mgrid-title">Atividades complementares</span>
+      </a>
+      <a class="mgrid-card" href="#estrutura-ead" data-open="estrutura-ead">
+        <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 14.2c3 .2 5.5 2.5 5.5 5.8"/></svg>
+        <span class="mgrid-num">06</span>
+        <span class="mgrid-title">Estrutura da Educação a Distância</span>
+      </a>
+      <a class="mgrid-card" href="#setores-de-atendimento" data-open="setores-de-atendimento">
+        <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        <span class="mgrid-num">07</span>
+        <span class="mgrid-title">Setores de atendimento da EaD</span>
+      </a>
+      <a class="mgrid-card" href="#encaminhamentos" data-open="encaminhamentos">
+        <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h12M12 6l6 6-6 6"/><circle cx="4" cy="12" r="1.5"/></svg>
+        <span class="mgrid-num">08</span>
+        <span class="mgrid-title">Encaminhamentos acadêmicos</span>
+      </a>
+      <a class="mgrid-card" href="#normativas" data-open="normativas">
+        <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg>
+        <span class="mgrid-num">09</span>
+        <span class="mgrid-title">Normativas acadêmicas</span>
+      </a>
+      <a class="mgrid-card" href="#enade" data-open="enade">
+        <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
+        <span class="mgrid-num">10</span>
+        <span class="mgrid-title">Enade</span>
+      </a>
+      <a class="mgrid-card" href="#avaliacao-institucional" data-open="avaliacao-institucional">
+        <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        <span class="mgrid-num">11</span>
+        <span class="mgrid-title">Avaliação institucional</span>
+      </a>
+      <a class="mgrid-card mgrid-card--accent" href="#simulador" data-open="avaliacao" data-target="simulador">
+        <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h6"/></svg>
+        <span class="mgrid-title">Simule sua nota</span>
+        <span class="mgrid-sub">AP1 + AP2 + AS</span>
+      </a>
     </nav>
+    <p class="msearch-empty" id="manual-vazio" hidden>Nada encontrado. Tente outra palavra ou procure na <a href="espaco-academico/index.html">Central de Dúvidas</a>.</p>
+  </section>
 
-    <div class="manual-content">
-      <section class="manual-chapter" id="sobre-a-ulbra">
-        <span class="eyebrow eyebrow--muted">Capítulo 1</span>
-        <h2 class="lp-title">Sobre a Ulbra</h2>
+  <div class="mchapters">
+      <details class="mchap" id="sobre-a-ulbra">
+        <summary>
+          <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg>
+          <span class="mchap-head">
+            <span class="mchap-num">Capítulo 1</span>
+            <span class="mchap-title">Sobre a Ulbra</span>
+            <span class="mchap-tldr">50+ anos, 9 campi no RS e 120+ polos EaD. Missão: ser comunidade de aprendizagem eficaz e inovadora.</span>
+          </span>
+          <span class="mchap-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mchap-body">
         <p>A Universidade Luterana do Brasil (Ulbra) atua há mais de 50 anos e integra a Rede Ulbra de Educação, marca utilizada pela sua mantenedora, a Aelbra, em todas as unidades de educação básica e de ensino superior nas regiões Sul, Norte e Centro-Oeste do país.</p>
         <p>Com nove campi universitários no Rio Grande do Sul e mais de 120 polos de educação a distância (EaD) em diversas regiões brasileiras, a Ulbra assume como missão ser comunidade de aprendizagem eficaz e inovadora. Para isso, se reinventa, acompanhando as mudanças da sociedade e impactando as comunidades pelas parcerias com empresas e instituições públicas e privadas.</p>
         <p>Oferecendo cursos de graduação e pós-graduação nas modalidades presencial e a distância, a Ulbra mantém ampla programação de extensão e pesquisa e leva o saber às localidades mais remotas do país, promovendo a inovação, a inclusão social e o desenvolvimento comunitário.</p>
@@ -77,11 +140,20 @@
           <span class="manual-material-note">Estrutura, filosofia e projetos da Universidade. Também no AutoAtendimento, em Documentos Institucionais.</span>
         </a>
         </div>
-      </section>
+        </div>
+      </details>
 
-      <section class="manual-chapter" id="educacao-a-distancia">
-        <span class="eyebrow eyebrow--muted">Capítulo 2</span>
-        <h2 class="lp-title">Sobre a educação a distância</h2>
+      <details class="mchap" id="educacao-a-distancia">
+        <summary>
+          <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span class="mchap-head">
+            <span class="mchap-num">Capítulo 2</span>
+            <span class="mchap-title">Sobre a educação a distância</span>
+            <span class="mchap-tldr">Rotina, vários acessos por semana e nada na última hora.</span>
+          </span>
+          <span class="mchap-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mchap-body">
         <p>A educação a distância é uma modalidade bastante eficaz, mas exige disciplina e organização. Algumas dicas para organizar seus estudos:</p>
         <ul class="manual-tips">
           <li><strong>Programe horários diários</strong> para acessar o ambiente de estudos: o hábito é fundamental.</li>
@@ -98,11 +170,20 @@
         </ul>
         <h3>Postura acadêmica</h3>
         <p>Ao ingressar na universidade, você passa a integrar o corpo discente e é esperado que sua conduta seja condizente. Cuide da linguagem e da postura, evite gírias e palavrões e trate colegas, professores, tutores e funcionários do polo e da universidade com cortesia e respeito. O conhecimento nos coloca diante do compromisso de crescer a cada dia, contribuindo com o crescimento das pessoas e dos ambientes à nossa volta.</p>
-      </section>
+        </div>
+      </details>
 
-      <section class="manual-chapter" id="metodologia">
-        <span class="eyebrow eyebrow--muted">Capítulo 3</span>
-        <h2 class="lp-title">Metodologia de ensino e aprendizagem</h2>
+      <details class="mchap" id="metodologia">
+        <summary>
+          <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+          <span class="mchap-head">
+            <span class="mchap-num">Capítulo 3</span>
+            <span class="mchap-title">Metodologia de ensino e aprendizagem</span>
+            <span class="mchap-tldr">Tudo acontece no AULA: plano, roteiro, salas de interação e bibliotecas virtuais.</span>
+          </span>
+          <span class="mchap-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mchap-body">
         <p>O trabalho usa diferentes estratégias de aprendizagem ativa, para estimular o protagonismo, a autogestão, a reflexão e a criticidade do acadêmico.</p>
         <p>O Ambiente Virtual de Aprendizagem é o <strong>AULA</strong>, desenvolvido pela própria universidade. Professor e tutor acompanham você de forma assíncrona, orientando, esclarecendo dúvidas e dando retorno por salas de interação e mensagens. Os materiais (e-books, aulas virtuais, vídeos, artigos e indicações do professor) ficam no AULA.</p>
         <p>As atividades práticas fomentam a aprendizagem ativa e são verificadas nas atividades avaliativas, com estratégias como estudo de caso, estudo dirigido, oficinas, painéis, webfólio, webinário, solução de problemas e aprendizagem baseada em problemas e em projetos, entre outras.</p>
@@ -115,11 +196,20 @@
           <dt>Avisos e mensagens</dt><dd>Comunicação entre a Universidade, professores, tutores e alunos.</dd>
           <dt>Bibliotecas virtuais Pearson e Minha Biblioteca</dt><dd>Acesso às bibliografias das disciplinas e a milhares de títulos de diferentes áreas.</dd>
         </dl>
-      </section>
+        </div>
+      </details>
 
-      <section class="manual-chapter" id="avaliacao">
-        <span class="eyebrow eyebrow--muted">Capítulo 4</span>
-        <h2 class="lp-title">Avaliação da aprendizagem</h2>
+      <details class="mchap" id="avaliacao">
+        <summary>
+          <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg>
+          <span class="mchap-head">
+            <span class="mchap-num">Capítulo 4</span>
+            <span class="mchap-title">Avaliação da aprendizagem</span>
+            <span class="mchap-tldr">AP1 1,5 + AP2 3,0 + AS 5,5 = 10. Aprovação com 6,0.</span>
+          </span>
+          <span class="mchap-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mchap-body">
         <p>A avaliação é contínua e processual, baseada nos princípios de progressão e autogestão, e evidencia o desenvolvimento das competências.</p>
         <h3>Disciplinas teóricas</h3>
         <div class="manual-scores">
@@ -134,6 +224,18 @@
           <li>obteve <strong>6,0 ou mais</strong> na PS e quer melhorar o desempenho (mediante protocolo on-line).</li>
         </ul>
         <p>A Pontuação Final (PF) é a maior entre a PS e a AF.</p>
+        <div class="manual-sim" id="simulador" hidden>
+          <h3>Simule sua nota</h3>
+          <div class="manual-sim-fields">
+            <label>AP1 <small>até 1,5</small><input type="number" inputmode="decimal" min="0" max="1.5" step="0.1" data-max="1.5" value="0"></label>
+            <label>AP2 <small>até 3,0</small><input type="number" inputmode="decimal" min="0" max="3" step="0.1" data-max="3" value="0"></label>
+            <label>AS <small>até 5,5</small><input type="number" inputmode="decimal" min="0" max="5.5" step="0.1" data-max="5.5" value="0"></label>
+          </div>
+          <div class="manual-sim-result" aria-live="polite">
+            <span class="manual-sim-ps">PS <strong id="sim-ps">0,0</strong></span>
+            <span class="manual-sim-msg" id="sim-msg"></span>
+          </div>
+        </div>
         <h3>Disciplinas práticas</h3>
         <p>Estágios, projetos e outras disciplinas práticas têm todas as etapas on-line, na trilha de aprendizagem: AP1 (1,5), AP2 (3,0) e AS (5,5, com a entrega final). PS = AP1 + AP2 + AS, com aprovação a partir de 6,0.</p>
         <h3>Revisão de questões e novos prazos</h3>
@@ -144,11 +246,20 @@
         </ul>
         <p>Podem fundamentar a análise: motivos previstos em lei (regime especial), problemas de saúde ou emergências comprováveis, falhas técnicas ou institucionais e outras situações excepcionais, analisadas pelo professor e, se necessário, pela coordenação. A lista não garante automaticamente uma nova data.</p>
         <p class="manual-alert"><strong>Fraude escolar:</strong> quem usar meios ilícitos ou não autorizados em provas, testes ou qualquer atividade recebe nota zero na avaliação, e o caso é comunicado à Coordenação do Curso.</p>
-      </section>
+        </div>
+      </details>
 
-      <section class="manual-chapter" id="atividades-complementares">
-        <span class="eyebrow eyebrow--muted">Capítulo 5</span>
-        <h2 class="lp-title">Atividades complementares</h2>
+      <details class="mchap" id="atividades-complementares">
+        <summary>
+          <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <span class="mchap-head">
+            <span class="mchap-num">Capítulo 5</span>
+            <span class="mchap-title">Atividades complementares</span>
+            <span class="mchap-tldr">Horas obrigatórias em ensino, pesquisa e extensão, até o penúltimo semestre.</span>
+          </span>
+          <span class="mchap-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mchap-body">
         <p>Alguns cursos preveem, com base nas resoluções do MEC, um número de horas de Atividades Complementares: atividades teórico-práticas de aprofundamento em áreas de interesse ligadas ao curso, realizadas por meio de <strong>ensino</strong> (aulas e cursos ministrados), <strong>pesquisa</strong> (iniciação científica) e <strong>extensão</strong> (como cursos de extensão).</p>
         <p>O ideal é fazer atividades nas três áreas, mas você pode cumprir em pelo menos duas. A carga horária é <strong>obrigatória</strong> e deve ser integralizada até o penúltimo semestre do curso. Não deixe para os últimos semestres; para detalhes, procure a coordenação do curso.</p>
         <div class="manual-materials">
@@ -158,11 +269,20 @@
           <span class="manual-material-note">Confira se o seu curso exige e quantas horas.</span>
         </a>
         </div>
-      </section>
+        </div>
+      </details>
 
-      <section class="manual-chapter" id="estrutura-ead">
-        <span class="eyebrow eyebrow--muted">Capítulo 6</span>
-        <h2 class="lp-title">Estrutura da Educação a Distância</h2>
+      <details class="mchap" id="estrutura-ead">
+        <summary>
+          <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 14.2c3 .2 5.5 2.5 5.5 5.8"/></svg>
+          <span class="mchap-head">
+            <span class="mchap-num">Capítulo 6</span>
+            <span class="mchap-title">Estrutura da Educação a Distância</span>
+            <span class="mchap-tldr">Polo, coordenador, professor e tutor: quem faz o quê.</span>
+          </span>
+          <span class="mchap-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mchap-body">
         <p>Na EaD você é acompanhado pelo <strong>Polo de Apoio Presencial</strong>, pelo <strong>Coordenador de Curso</strong>, pelo <strong>Professor</strong> e pelo <strong>Tutor</strong>.</p>
         <dl class="manual-dl">
           <dt>Polo</dt><dd>Suporte no processo seletivo, envio de documentos, matrículas e orientações sobre a Universidade, além de apoio metodológico para organizar seus estudos.</dd>
@@ -177,11 +297,20 @@
           <span class="manual-material-note">Encontre o coordenador do seu curso e o e-mail.</span>
         </a>
         </div>
-      </section>
+        </div>
+      </details>
 
-      <section class="manual-chapter" id="setores-de-atendimento">
-        <span class="eyebrow eyebrow--muted">Capítulo 7</span>
-        <h2 class="lp-title">Setores de atendimento da EaD</h2>
+      <details class="mchap" id="setores-de-atendimento">
+        <summary>
+          <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="mchap-head">
+            <span class="mchap-num">Capítulo 7</span>
+            <span class="mchap-title">Setores de atendimento da EaD</span>
+            <span class="mchap-tldr">AULA para estudar; WebAluno para a vida acadêmica e financeira.</span>
+          </span>
+          <span class="mchap-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mchap-body">
         <p>Você tem dois ambientes para fazer o curso e cuidar da vida acadêmica:</p>
         <div class="manual-pair">
           <div><h3>Ambiente AULA</h3><p>Salas virtuais das disciplinas, onde você interage com tutores, professores e colegas.</p></div>
@@ -198,11 +327,20 @@
         </ul>
         <h3>Financeiro EaD</h3>
         <p>Para questões financeiras que o WebAluno não resolve: <a href="mailto:financeiro.ead@ulbra.br">financeiro.ead@ulbra.br</a>. Atrasos no vencimento dos boletos implicam a perda automática do desconto na parcela em atraso.</p>
-      </section>
+        </div>
+      </details>
 
-      <section class="manual-chapter" id="encaminhamentos">
-        <span class="eyebrow eyebrow--muted">Capítulo 8</span>
-        <h2 class="lp-title">Encaminhamentos acadêmicos</h2>
+      <details class="mchap" id="encaminhamentos">
+        <summary>
+          <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h12M12 6l6 6-6 6"/><circle cx="4" cy="12" r="1.5"/></svg>
+          <span class="mchap-head">
+            <span class="mchap-num">Capítulo 8</span>
+            <span class="mchap-title">Encaminhamentos acadêmicos</span>
+            <span class="mchap-tldr">Professor → Coordenação → Polo → Ouvidoria. E o NADi para apoio.</span>
+          </span>
+          <span class="mchap-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mchap-body">
         <p>Se encontrar dificuldades, siga esta ordem:</p>
         <ol class="manual-steps">
           <li><strong>Professor</strong> — para dúvidas pedagógicas, por mensagem ou no fórum de dúvidas do AULA.</li>
@@ -217,11 +355,20 @@
           <li><strong>Polos EaD das unidades Ulbra:</strong> procure a coordenação do seu polo.</li>
           <li><strong>Demais polos EaD:</strong> <a href="mailto:nadnadi.canoas@ulbra.br">nadnadi.canoas@ulbra.br</a>.</li>
         </ul>
-      </section>
+        </div>
+      </details>
 
-      <section class="manual-chapter" id="normativas">
-        <span class="eyebrow eyebrow--muted">Capítulo 9</span>
-        <h2 class="lp-title">Normativas acadêmicas</h2>
+      <details class="mchap" id="normativas">
+        <summary>
+          <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg>
+          <span class="mchap-head">
+            <span class="mchap-num">Capítulo 9</span>
+            <span class="mchap-title">Normativas acadêmicas</span>
+            <span class="mchap-tldr">Matrícula, trancamento, faltas, reingresso e outras regras do curso.</span>
+          </span>
+          <span class="mchap-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mchap-body">
         <p>O que você precisa saber para uma jornada acadêmica organizada, da matrícula à conclusão.</p>
         <div class="manual-faq">
           <details><summary>Ano e semestre letivo</summary><p>O ano acadêmico tem dois períodos letivos regulares, com disciplinas teóricas e práticas (estágios, TCCs, PEIs, PIs, laboratoriais e projetos) em organização semestral. Observe o início e o fim das disciplinas na matrícula e acompanhe o <a href="calendario-ead.html">calendário acadêmico</a>.</p></details>
@@ -242,11 +389,20 @@
           <details><summary>Progressão de estudos (extraordinário aproveitamento)</summary><p>Quem tem extraordinário aproveitamento pode abreviar o curso por provas aplicadas por banca especial, com certificados e atestados, por protocolo e nos prazos do calendário. Não vale para disciplinas reprovadas nem para formandos (80% da matriz concluída); permitido em até 25% das disciplinas (Resolução ConsUn nº 100/2010).</p></details>
           <details><summary>Estágios obrigatórios</summary><p>Os cursos com estágio obrigatório têm diretrizes próprias. O Termo de Compromisso de Estágio (TCE) é obrigatório e assinado por aluno, local de estágio, Coordenação de Estágio e Coordenação de Curso. Sem o TCE no prazo, há reprovação nas disciplinas de estágio.</p></details>
         </div>
-      </section>
+        </div>
+      </details>
 
-      <section class="manual-chapter" id="enade">
-        <span class="eyebrow eyebrow--muted">Capítulo 10</span>
-        <h2 class="lp-title">Enade</h2>
+      <details class="mchap" id="enade">
+        <summary>
+          <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
+          <span class="mchap-head">
+            <span class="mchap-num">Capítulo 10</span>
+            <span class="mchap-title">Enade</span>
+            <span class="mchap-tldr">Obrigatório: quem é selecionado e não faz não cola grau nem recebe diploma.</span>
+          </span>
+          <span class="mchap-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mchap-body">
         <p>O Exame Nacional de Desempenho dos Estudantes (Lei nº 10.861/2004) é <strong>componente obrigatório</strong> dos cursos de graduação: o aluno selecionado que não fizer a prova <strong>não pode colar grau nem receber o diploma</strong>.</p>
         <p>O exame avalia o desempenho em relação aos conteúdos das diretrizes curriculares e às competências para a atualização permanente dos conhecimentos. A prova tem duas partes: formação geral, comum a todos os cursos, e conhecimentos específicos da profissão.</p>
         <ul>
@@ -255,18 +411,27 @@
           <li><strong>O aluno selecionado</strong> deve participar. Faltou? Justifique à Universidade ou ao MEC/INEP com documento registrado em cartório.</li>
         </ul>
         <p>O resultado do curso é uma nota baseada no desempenho dos alunos: quanto melhor, mais valorizado é o seu diploma. Faça a prova com empenho.</p>
-      </section>
+        </div>
+      </details>
 
-      <section class="manual-chapter" id="avaliacao-institucional">
-        <span class="eyebrow eyebrow--muted">Capítulo 11</span>
-        <h2 class="lp-title">Avaliação institucional</h2>
+      <details class="mchap" id="avaliacao-institucional">
+        <summary>
+          <svg class="mchap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          <span class="mchap-head">
+            <span class="mchap-num">Capítulo 11</span>
+            <span class="mchap-title">Avaliação institucional</span>
+            <span class="mchap-tldr">Responda à CPA no WebAluno e ajude a melhorar o curso.</span>
+          </span>
+          <span class="mchap-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mchap-body">
         <p>Periodicamente você será convidado, pelo AULA, a participar da avaliação institucional conduzida pela Comissão Própria de Avaliação (CPA). O questionário é respondido no WebAluno, e você opina sobre o curso, os professores e a Universidade.</p>
         <p>Depois da tabulação, os resultados e o plano de ação de melhorias ficam disponíveis. Participe sempre: é um direito seu e ajuda a melhorar o curso e a Universidade.</p>
-      </section>
-
-      <p class="manual-source">Conteúdo do <a href="https://sites.google.com/ulbra.br/graduacaoulbraead/manual-do-aluno/1%C2%AA-edi%C3%A7%C3%A3o" target="_blank" rel="noopener">Manual do Aluno EaD – 1ª edição</a>, da Graduação Ulbra EaD, organizado para o Portal do Estudante. AELBRA Educação Superior – Graduação e Pós-Graduação S/A · Av. Farroupilha, 8001 · Canoas/RS.</p>
-    </div>
+        </div>
+      </details>
   </div>
+
+  <p class="manual-source">Conteúdo do <a href="https://sites.google.com/ulbra.br/graduacaoulbraead/manual-do-aluno/1%C2%AA-edi%C3%A7%C3%A3o" target="_blank" rel="noopener">Manual do Aluno EaD – 1ª edição</a>, da Graduação Ulbra EaD, organizado para o Portal do Estudante. AELBRA Educação Superior – Graduação e Pós-Graduação S/A · Av. Farroupilha, 8001 · Canoas/RS.</p>
 </main>
 
 <footer class="footer">
@@ -289,6 +454,96 @@
     <a class="footer__legal-link" href="#">Política de privacidade</a>
   </div>
 </footer>
+
+<script>
+  // Sem JS, os capítulos funcionam como <details> e os links da grade levam a eles.
+  (function () {
+    var chapters = [].slice.call(document.querySelectorAll('.mchap'));
+
+    function openById(id, scroll) {
+      var el = document.getElementById(id);
+      if (!el || !el.classList.contains('mchap')) return;
+      el.open = true;
+      if (scroll) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return el;
+    }
+
+    document.querySelectorAll('[data-open]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var alvo = a.dataset.target || a.dataset.open;
+        history.replaceState(null, '', '#' + alvo);
+        openById(a.dataset.open, !a.dataset.target);
+        if (a.dataset.target) {
+          var t = document.getElementById(a.dataset.target);
+          t.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          var first = t.querySelector('input');
+          if (first) first.focus({ preventScroll: true });
+        }
+      });
+    });
+    if (location.hash) openById(location.hash.slice(1), true);
+
+    // Abrir / fechar todos.
+    var toggle = document.getElementById('manual-abrir-todos');
+    toggle.hidden = false;
+    function syncToggle() {
+      toggle.textContent = chapters.every(function (c) { return c.open; }) ? 'Fechar todos' : 'Abrir todos';
+    }
+    toggle.addEventListener('click', function () {
+      var open = !chapters.every(function (c) { return c.open; });
+      chapters.forEach(function (c) { c.open = open; });
+      syncToggle();
+    });
+    chapters.forEach(function (c) { c.addEventListener('toggle', syncToggle); });
+
+    // Busca: mostra só os capítulos (e cards) que contêm o termo, já abertos.
+    var search = document.getElementById('manual-busca');
+    var empty = document.getElementById('manual-vazio');
+    search.hidden = false;
+    function norm(t) { return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+    var texts = chapters.map(function (c) { return norm(c.textContent); });
+    search.addEventListener('input', function () {
+      var q = norm(search.value.trim());
+      var hits = 0;
+      chapters.forEach(function (c, i) {
+        var match = !q || texts[i].indexOf(q) !== -1;
+        c.hidden = !match;
+        if (q) c.open = match;
+        document.querySelectorAll('[data-open="' + c.id + '"]').forEach(function (a) { a.classList.toggle('is-dim', !match); });
+        if (match) hits++;
+      });
+      empty.hidden = hits > 0;
+      syncToggle();
+    });
+
+    // Simulador de nota (disciplinas teóricas).
+    var sim = document.getElementById('simulador');
+    if (sim) {
+      sim.hidden = false;
+      var inputs = [].slice.call(sim.querySelectorAll('input'));
+      var psEl = document.getElementById('sim-ps');
+      var msg = document.getElementById('sim-msg');
+      function fmt(n) { return n.toFixed(1).replace('.', ','); }
+      function calc() {
+        var ps = inputs.reduce(function (t, i) {
+          var v = parseFloat(String(i.value).replace(',', '.')) || 0;
+          return t + Math.min(Math.max(v, 0), parseFloat(i.dataset.max));
+        }, 0);
+        ps = Math.round(ps * 10) / 10;
+        psEl.textContent = fmt(ps);
+        sim.dataset.state = ps >= 6 ? 'ok' : ps > 0 ? 'af' : '';
+        msg.textContent = ps >= 6
+          ? 'Aprovado! Se quiser melhorar, você ainda pode fazer a AF (por protocolo).'
+          : ps > 0
+            ? 'Faltam ' + fmt(6 - ps) + ' para 6,0. Você pode fazer a Avaliação Final (AF).'
+            : 'Preencha as notas para ver o resultado.';
+      }
+      inputs.forEach(function (i) { i.addEventListener('input', calc); });
+      calc();
+    }
+  })();
+</script>
 
 </body>
 </html>
